@@ -47,7 +47,10 @@
         "*.{json,md}": [
             "prettier --write",
             "git add"
-        ]
+        ],
+        "*.js": "eslint --cache --fix",
+        "*.css": "stylelint --fix",
+        "*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write"
     },
     "browserslist": {
         "production": [

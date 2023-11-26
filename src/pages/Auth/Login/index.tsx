@@ -1,13 +1,13 @@
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { INPUTS_KEYS, PRegister } from "../types";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { INPUTS_KEYS, PRegister } from '../types';
 
 interface Props {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     formValues: Partial<PRegister>;
 }
 
-const Login = ({onChange, formValues}: Props) => {
+const Login = ({ onChange, formValues }: Props) => {
     return (
         <div className="register-form">
             <h2 className="register-form__title">Log in</h2>

@@ -1,4 +1,4 @@
-import Link from "@mui/material/Link";
+import Link from '@mui/material/Link';
 
 interface Props {
     text: string;
@@ -6,7 +6,7 @@ interface Props {
     onClick: () => void;
 }
 
-const SubLink = ({text, linkText, onClick}: Props) => {
+const SubLink = ({ text, linkText, onClick }: Props) => {
     return (
         <h3 className="auth__subtitle">
             {text}

@@ -21,7 +21,7 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "prepare": "husky install",
-        "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
+        "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}' && git add ."
     },
     "eslintConfig": {
         "extends": [

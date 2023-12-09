@@ -149,6 +149,11 @@ input,
 select {
     vertical-align: middle;
 }
+
+#root {
+    height: 100vh;
+}
+
 * {
     box-sizing: border-box;
 }

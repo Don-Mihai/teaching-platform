@@ -3,11 +3,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Auth from './pages/Auth';
+import ModulesPage from './pages/ModulesPage';
+import Listeners from './pages/Listeners';
+import { PAGE_ROUTES } from './utils/types';
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: PAGE_ROUTES.Auth,
         element: <Auth />,
+    },
+    {
+        path: PAGE_ROUTES.Modules,
+        element: <ModulesPage />,
+    },
+    {
+        path: PAGE_ROUTES.Listeners,
+        element: <Listeners />,
     },
 ]);
 

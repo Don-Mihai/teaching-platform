@@ -1,0 +1,30 @@
+.modules-page {
+    display: flex;
+    height: 100%;
+
+    &__content {
+        flex-grow: 1;
+    }
+
+    &__modules {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* Три колонки с равным шириной */
+        gap: 16px;
+        /* Отступ между элементами */
+    }
+
+    &__module {
+        /* Стилизация модулей */
+        background-color: #f0f0f0;
+        padding: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

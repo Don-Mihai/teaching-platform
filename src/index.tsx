@@ -6,6 +6,7 @@ import Auth from './pages/Auth';
 import ModulesPage from './pages/ModulesPage';
 import Listeners from './pages/Listeners';
 import { PAGE_ROUTES } from './utils/types';
+import Profile from './pages/Profile';
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     {
         path: PAGE_ROUTES.Listeners,
         element: <Listeners />,
+    },
+    {
+        path: PAGE_ROUTES.Profile,
+        element: <Profile />,
     },
 ]);
 

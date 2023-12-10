@@ -1,6 +1,14 @@
 .header-component {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     width: 300px;
     background-color: grey;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
 }

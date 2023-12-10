@@ -3,4 +3,5 @@ export enum PAGE_ROUTES {
     Modules = '/modules',
     Listeners = '/listeners',
     Tasks = '/tasks',
+    Profile = '/profile',
 }

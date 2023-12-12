@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import './ModulesPage.scss';
 import Header from '../../components/Header';
+import { InputAdornment, TextField } from '@mui/material';
 
 const ModulesPage = () => {
     return (

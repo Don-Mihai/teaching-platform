@@ -1,4 +1,57 @@
 .profile-page {
     display: flex;
     height: 100%;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+    }
+    &__title-cont {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f7f7f7;
+    }
+    &__title-text {
+        padding: 5px;
+    }
+    &__main-cont {
+    }
+    &__avatar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__avatar-label {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: rgb(173, 172, 172);
+    }
+    &__avatar-label-new {
+        margin-bottom: 20px;
+    }
+    &__inputs {
+        margin: 15px;
+    }
+    &__input-email {
+        display: flex;
+        margin: 15px;
+    }
+    &__input-password {
+        display: flex;
+        margin: 15px;
+    }
+    &__input-first-name {
+        margin: 15px;
+    }
+    &__input-last-name {
+        margin: 15px;
+    }
+    &__button-save {
+        margin-bottom: 10px;
+    }
+    &__button-delete {
+    }
 }

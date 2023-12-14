@@ -1,19 +1,28 @@
-import TextField from '@mui/material/TextField';
 import Header from '../../components/Header';
 import './Profile.scss';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
-import { grey, pink, red } from '@mui/material/colors';
+import { grey, pink } from '@mui/material/colors';
 import ClearIcon from '@mui/icons-material/Clear';
 import styled from '@emotion/styled';
-import Email from './components/Inputs/Email/inded';
-import Password from './components/Inputs/Password/Password';
+import axios from 'axios';
+import Inputs from './components/Inputs/Index';
+import { useState } from 'react';
+import { IProfile } from './types';
 
 const Input = styled('input')({
     display: 'none',
 });
 
 const Profile = () => {
+    const [usersList, setUsersList] = useState<IProfile[]>([]);
+
+    const addUser = (newUser: IProfile) => {
+        setUsersList([...usersList, newUser]);
+    };
+
+    console.log('usersList >>>', usersList);
+
     return (
         <div className="profile-page">
             <Header />
@@ -38,26 +47,7 @@ const Profile = () => {
                             </label>
                         </span>
                     </div>
-                    <div className="profile-page__inputs">
-                        <Email />
-                        <Password />
-                        <div className="profile-page__input-first-name">
-                            <TextField fullWidth label={'First Name'}></TextField>
-                        </div>
-                        <div className="profile-page__input-last-name">
-                            <TextField fullWidth label={'Last Name'}></TextField>
-                        </div>
-                        <div className="profile-page__button-save">
-                            <Button size="large" sx={{ textTransform: 'none' }} fullWidth variant="contained">
-                                Save changes
-                            </Button>
-                        </div>
-                        <div className="profile-page__button-delete">
-                            <Button size="large" sx={{ textTransform: 'none', color: red[300] }} fullWidth>
-                                Delete
-                            </Button>
-                        </div>
-                    </div>
+                    <Inputs addUser={addUser} />
                 </div>
             </div>
         </div>

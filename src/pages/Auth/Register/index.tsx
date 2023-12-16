@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import { validateEmail, validateName, validatePassword } from '../../../utils/utils';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 interface Props {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     formValues: Partial<PRegister>;
@@ -30,12 +31,13 @@ const Register = ({ onChange, formValues }: Props) => {
         return [errors, isValid];
     };
 
-    const onSignUp = () => {
+    const onSignUp = async () => {
         const [error, isValid] = validate();
 
         setError(error);
 
         if (isValid) {
+            await axios.post('http://localhost:3001/users', formValues);
             navigate('/modules');
         }
     };

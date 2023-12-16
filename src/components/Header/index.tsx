@@ -9,32 +9,57 @@ const Header = () => {
 
     return (
         <header className="header-component">
-            <Link to={PAGE_ROUTES.Profile}>
-                <Avatar sx={{ width: 80, height: 80, margin: '20px' }}>MP</Avatar>
+            <Link className="avatar" to={PAGE_ROUTES.Profile}>
+                <Avatar sx={{ width: 70, height: 70, margin: '20px', bgcolor: 'darkkhaki' }}>MP</Avatar>
             </Link>
 
             <nav className="nav">
                 <Link to={PAGE_ROUTES.Modules}>
-                    <Button fullWidth variant="contained" color={navigate.pathname === PAGE_ROUTES.Modules ? 'success' : undefined}>
-                        Модули
+                    <Button
+                        fullWidth
+                        size="large"
+                        variant={navigate.pathname === PAGE_ROUTES.Modules ? 'contained' : undefined}
+                        color={navigate.pathname === PAGE_ROUTES.Modules ? 'success' : undefined}
+                    >
+                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios/50/FFFFFF/module.png" alt="module" />
+
+                        <span className="text">⠀Модули</span>
                     </Button>
                 </Link>
 
                 <Link to={PAGE_ROUTES.Listeners}>
-                    <Button fullWidth variant="contained" color={navigate.pathname === PAGE_ROUTES.Listeners ? 'success' : undefined}>
-                        Слушатели
+                    <Button
+                        fullWidth
+                        size="large"
+                        variant={navigate.pathname === PAGE_ROUTES.Listeners ? 'contained' : undefined}
+                        color={navigate.pathname === PAGE_ROUTES.Listeners ? 'success' : undefined}
+                    >
+                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios/50/FFFFFF/queue.png" alt="listeners" />
+                        <span className="text">⠀Слушатели</span>
                     </Button>
                 </Link>
 
                 <Link to={PAGE_ROUTES.Tasks}>
-                    <Button fullWidth variant="contained" color={navigate.pathname === PAGE_ROUTES.Tasks ? 'success' : undefined}>
-                        Задания
+                    <Button
+                        fullWidth
+                        size="large"
+                        variant={navigate.pathname === PAGE_ROUTES.Tasks ? 'contained' : undefined}
+                        color={navigate.pathname === PAGE_ROUTES.Tasks ? 'success' : undefined}
+                    >
+                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/todo-list.png" alt="todo-list" />
+                        <span className="text">⠀Задания</span>
                     </Button>
                 </Link>
 
                 <Link to={PAGE_ROUTES.Profile}>
-                    <Button fullWidth variant="contained" color={navigate.pathname === PAGE_ROUTES.Profile ? 'success' : undefined}>
-                        Профиль
+                    <Button
+                        fullWidth
+                        size="large"
+                        variant={navigate.pathname === PAGE_ROUTES.Profile ? 'contained' : undefined}
+                        color={navigate.pathname === PAGE_ROUTES.Profile ? 'success' : undefined}
+                    >
+                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios/50/FFFFFF/guest-male.png" alt="profile" />
+                        <span className="text">⠀Профиль</span>
                     </Button>
                 </Link>
             </nav>

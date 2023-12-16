@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import './ModulesPage.scss';
 import Header from '../../Components/Header';
 import Card from '../../Components/Card';

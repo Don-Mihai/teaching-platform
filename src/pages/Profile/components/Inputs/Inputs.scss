@@ -1,0 +1,23 @@
+.profile-component {
+    margin: 15px;
+
+    &__input-email {
+        display: flex;
+        margin-bottom: 15px;
+    }
+    &__input-password {
+        display: flex;
+        margin-bottom: 15px;
+    }
+    &__input-first-name {
+        margin-bottom: 15px;
+    }
+    &__input-last-name {
+        margin-bottom: 15px;
+    }
+    &__button-save {
+        margin-bottom: 10px;
+    }
+    &__button-delete {
+    }
+}

@@ -2,7 +2,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { INPUTS_KEYS, PRegister } from '../types';
 import { useState } from 'react';
-import { validateEmail, validateName } from '../../../utils/utils';
+import { validateEmail, validateName, validatePassword } from '../../../utils/utils';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -16,7 +16,7 @@ const Register = ({ onChange, formValues }: Props) => {
     const navigate = useNavigate();
 
     const validate = () => {
-        const errors = { ...validateName(formValues), ...validateEmail(formValues) };
+        const errors = { ...validateName(formValues), ...validateEmail(formValues), ...validatePassword(formValues) };
 
         let isValid = true;
 
@@ -65,7 +65,7 @@ const Register = ({ onChange, formValues }: Props) => {
                     onChange={onChange}
                     value={formValues.email}
                     label="Email"
-                    name="email"
+                    name={INPUTS_KEYS.EMAIL}
                     fullWidth
                 ></TextField>
                 <TextField
@@ -75,7 +75,7 @@ const Register = ({ onChange, formValues }: Props) => {
                     onChange={onChange}
                     value={formValues.password}
                     label="Password"
-                    name="password"
+                    name={INPUTS_KEYS.PASSWORD}
                     fullWidth
                 ></TextField>
                 <Button onClick={onSignUp} variant="contained">

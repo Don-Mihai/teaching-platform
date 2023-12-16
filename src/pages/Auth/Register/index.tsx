@@ -2,9 +2,11 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { INPUTS_KEYS, PRegister } from '../types';
 import { useState } from 'react';
-import { validateEmail, validateName, validatePassword } from '../../../utils/utils';
-import { useNavigate } from 'react-router-dom';
 
+
+
+import { validateEmail, validateName, validatePassword} from '../../../utils/utils';
+import { useNavigate} from 'react-router-dom';
 interface Props {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     formValues: Partial<PRegister>;

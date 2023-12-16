@@ -3,9 +3,10 @@ import './Auth.scss';
 import TextField from '@mui/material/TextField';
 import { AUTH_MODE, INPUTS_KEYS, PRegister, initValues } from './types';
 import { Button, Link } from '@mui/material';
-import SubLink from './SubLink';
+import SubLink from './Sublink';
 import Register from './Register';
 import Login from './Login';
+
 
 const Auth = () => {
     const [formValues, setFormValues] = useState<Partial<PRegister>>(initValues);

@@ -15,10 +15,45 @@
     }
 
     &__module {
-        /* Стилизация модулей */
-        background-color: #f0f0f0;
-        padding: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        padding: 30px;
+        margin: 10px;
+        align-items: start;
+        background-color: greenyellow;
+        border-radius: 20px;
     }
+
+    &__img {
+        width: 100%;
+        margin: auto
+    }
+
+    &__title {
+        font-size: 25px;
+        margin-top: 10px;
+    }
+
+    &__subtitle {
+        margin-top: 5px;
+        margin-bottom: 20px;
+        font-size: 20px;
+        color: rgb(70, 69, 69);
+
+    }
+
+    &__card-footer {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    
+
+
+
+
 }

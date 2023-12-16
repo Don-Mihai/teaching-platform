@@ -6,6 +6,10 @@ import { Avatar } from '@mui/material';
 
 const Header = () => {
     const navigate = useLocation();
+    // todo: при клике на стрелку скрывать и показывать
+    // скролл
+    // уменьшить аватарку при сужении
+    // текст
 
     return (
         <header className="header-component">

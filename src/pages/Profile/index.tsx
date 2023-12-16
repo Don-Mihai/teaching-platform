@@ -15,6 +15,7 @@ const Input = styled('input')({
 });
 
 const Profile = () => {
+    // todo: сделайть работу только с одним пользователем.
     const [usersList, setUsersList] = useState<IProfile[]>([]);
 
     const addUser = (newUser: IProfile) => {

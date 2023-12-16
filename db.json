@@ -5,6 +5,12 @@
       "email": "mihai807@mail.ru",
       "password": "M00000000",
       "id": 1
+    },
+    {
+      "name": "Руслан",
+      "email": "rnagumanov57@gmail.com",
+      "password": "111111111111D",
+      "id": 2
     }
   ]
 }

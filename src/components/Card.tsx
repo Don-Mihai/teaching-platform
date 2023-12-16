@@ -1,7 +1,5 @@
 import { Button } from '@mui/material';
 
-
-
 const Card = ({ cardData }: any) => {
     return (
         <div className="modules-page__module">

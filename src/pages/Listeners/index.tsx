@@ -1,4 +1,4 @@
-import Header from '../../Components/Header';
+import Header from '../../components/Header';
 import './Listeners.scss';
 
 const Listeners = () => {

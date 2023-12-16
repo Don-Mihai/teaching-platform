@@ -1,6 +1,6 @@
 import './ModulesPage.scss';
-import Header from '../../Components/Header';
-import Card from '../../Components/Card';
+import Header from '../../components/Header';
+import Card from '../../components/Card';
 import cardData from '../../utils/cards';
 const ModulesPage = () => {
     return (
@@ -8,7 +8,9 @@ const ModulesPage = () => {
             <Header />
             <div className="modules-page__content">
                 <div className="modules-page__modules">
-                   {cardData.map((card: any)=> <Card cardData={card}/>)}
+                    {cardData.map((card: any) => (
+                        <Card cardData={card} />
+                    ))}
                 </div>
             </div>
         </div>

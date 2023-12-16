@@ -1,4 +1,4 @@
-import Header from '../../Components/Header';
+import Header from '../../components/Header';
 import './Profile.scss';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';

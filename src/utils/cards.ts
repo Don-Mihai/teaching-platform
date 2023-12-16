@@ -1,4 +1,4 @@
- const cardData = [
+const cardData = [
     {
         src: 'https://image.pngaaa.com/683/2260683-middle.png',
         title: 'Lorem, ipsum dolor.',

@@ -1,14 +1,14 @@
 import { INPUTS_KEYS, PRegister } from '../pages/Auth/types';
 
 export const validateName = (formValues: Partial<PRegister>) => {
-    const name = formValues[INPUTS_KEYS.NAME];
+    const name = formValues[INPUTS_KEYS.FIRST_NAME];
 
     if (!name) {
-        return { [INPUTS_KEYS.NAME]: 'The data is required!' };
+        return { [INPUTS_KEYS.FIRST_NAME]: 'The data is required!' };
     }
 
     if (name?.length !== undefined && (name?.length >= 25 || name?.length <= 3)) {
-        return { [INPUTS_KEYS.NAME]: 'More than 3 and less than 25' };
+        return { [INPUTS_KEYS.FIRST_NAME]: 'More than 3 and less than 25' };
     }
 
     return {};

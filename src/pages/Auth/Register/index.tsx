@@ -53,12 +53,12 @@ const Register = ({ onChange, formValues }: Props) => {
             <div className="register-form__inputs">
                 <TextField
                     onFocus={handleFocus}
-                    error={error[INPUTS_KEYS.NAME]?.length}
-                    helperText={error[INPUTS_KEYS.NAME]}
+                    error={error[INPUTS_KEYS.FIRST_NAME]?.length}
+                    helperText={error[INPUTS_KEYS.FIRST_NAME]}
                     onChange={onChange}
-                    value={formValues[INPUTS_KEYS.NAME]}
+                    value={formValues[INPUTS_KEYS.FIRST_NAME]}
                     label="Name"
-                    name={INPUTS_KEYS.NAME}
+                    name={INPUTS_KEYS.FIRST_NAME}
                     fullWidth
                 ></TextField>
                 <TextField

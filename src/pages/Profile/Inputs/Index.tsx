@@ -16,7 +16,7 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                 <TextField
                     name="email"
                     type="text"
-                    value={formValues[PROFILE_KEYS.EMAIL]}
+                    value={formValues?.[PROFILE_KEYS.EMAIL]}
                     fullWidth
                     sx={{ border: 'none' }}
                     onChange={handleChange}
@@ -28,7 +28,7 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                 <TextField
                     name="password"
                     type="text"
-                    value={formValues[PROFILE_KEYS.PASSWORD]}
+                    value={formValues?.[PROFILE_KEYS.PASSWORD]}
                     onChange={handleChange}
                     fullWidth
                     sx={{ border: 'none' }}
@@ -40,7 +40,7 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                 <TextField
                     name="firstName"
                     type="text"
-                    value={formValues[PROFILE_KEYS.FIRST_NAME]}
+                    value={formValues?.[PROFILE_KEYS.FIRST_NAME]}
                     onChange={handleChange}
                     fullWidth
                     label={'First Name'}
@@ -50,7 +50,7 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                 <TextField
                     name="lastName"
                     type="text"
-                    value={formValues[PROFILE_KEYS.LAST_NAME]}
+                    value={formValues?.[PROFILE_KEYS.LAST_NAME]}
                     onChange={handleChange}
                     fullWidth
                     label={'Last Name'}

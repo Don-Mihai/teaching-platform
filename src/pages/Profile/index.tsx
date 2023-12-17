@@ -9,10 +9,6 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { IProfile, initState } from './types';
 import axios from 'axios';
 
-const Input = styled('input')({
-    display: 'none',
-});
-
 const Profile = () => {
     const [formValues, setFormValues] = useState<Partial<IProfile>>(initState);
 
@@ -28,7 +24,8 @@ const Profile = () => {
     const handleSubmit = (event: any) => {};
 
     const fetchUser = async () => {
-        await axios.get(`http://localhost:3001/users/${localStorage.getItem('userId')}`);
+        const user = (await axios.get(`http://localhost:3001/users/${localStorage.getItem('userId')}`)).data;
+        setFormValues(user);
     };
 
     return (
@@ -45,7 +42,6 @@ const Profile = () => {
                         <span className="profile-page__avatar-label-new">
                             Drag your photo or
                             <label htmlFor="contained-button-file">
-                                <Input accept="image/*" id="contained-button-file" multiple type="file" />
                                 <Button sx={{ boxShadow: 'none', textTransform: 'none' }} component="span">
                                     upload a new image
                                 </Button>

@@ -1,22 +1,28 @@
 {
   "users": [
     {
-      "name": "Михаил",
+      "firstName": "Михаил",
       "email": "mihai807@mail.ru",
       "password": "M00000000",
       "id": 1
     },
     {
-      "name": "Руслан",
+      "firstName": "Руслан",
       "email": "rnagumanov57@gmail.com",
       "password": "111111111111D",
       "id": 2
     },
     {
-      "name": "Моисей",
+      "firstName": "Моисей",
       "email": "test@mail.ru",
       "password": "M00000000",
       "id": 3
+    },
+    {
+      "email": "test@mail.ru",
+      "password": "M00000000",
+      "firstName": "Bruklin",
+      "id": 4
     }
   ]
 }

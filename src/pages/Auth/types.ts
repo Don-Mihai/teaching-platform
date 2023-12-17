@@ -1,13 +1,13 @@
 export interface PRegister {
-    [INPUTS_KEYS.NAME]: string;
-    email: string;
-    password: string;
+    [INPUTS_KEYS.FIRST_NAME]: string;
+    [INPUTS_KEYS.PASSWORD]: string;
+    [INPUTS_KEYS.EMAIL]: string;
 }
 
 export enum INPUTS_KEYS {
-    NAME = 'name',
     EMAIL = 'email',
     PASSWORD = 'password',
+    FIRST_NAME = 'firstName',
 }
 
 export enum AUTH_MODE {
@@ -15,4 +15,4 @@ export enum AUTH_MODE {
     REGISTER,
 }
 
-export const initValues = { name: '', email: '', password: '' };
+export const initValues = { firstName: '', email: '', password: '' };

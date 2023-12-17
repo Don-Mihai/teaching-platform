@@ -1,7 +1,6 @@
-import { Button, InputAdornment, TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { IProfile, PROFILE_KEYS, initState } from '../../types';
-import { red } from '@mui/material/colors';
+import { IProfile, PROFILE_KEYS, initState } from '../types';
 import './Inputs.scss';
 
 interface AddUserProps {
@@ -40,13 +39,6 @@ const Inputs: FC<AddUserProps> = ({ addUser }) => {
                         onChange={handleChange}
                         variant="outlined"
                         label="Email"
-                        InputProps={{
-                            endAdornment: (
-                                <InputAdornment position="end">
-                                    <Button sx={{ marginTop: '3px', textTransform: 'none' }}>Change email</Button>
-                                </InputAdornment>
-                            ),
-                        }}
                     />
                 </div>
                 <div className="profile-component__input-password">
@@ -59,13 +51,6 @@ const Inputs: FC<AddUserProps> = ({ addUser }) => {
                         sx={{ border: 'none' }}
                         variant="outlined"
                         label={'Password'}
-                        InputProps={{
-                            endAdornment: (
-                                <InputAdornment position="end">
-                                    <Button sx={{ marginTop: '3px', textTransform: 'none' }}>Change password</Button>
-                                </InputAdornment>
-                            ),
-                        }}
                     />
                 </div>
                 <div className="profile-component__input-first-name">
@@ -91,11 +76,6 @@ const Inputs: FC<AddUserProps> = ({ addUser }) => {
                 <div className="profile-component__button-save">
                     <Button type="submit" size="large" sx={{ textTransform: 'none' }} fullWidth variant="contained">
                         Save changes
-                    </Button>
-                </div>
-                <div className="profile-component__button-delete">
-                    <Button size="large" sx={{ textTransform: 'none', color: red[300] }} fullWidth>
-                        Delete
                     </Button>
                 </div>
             </form>

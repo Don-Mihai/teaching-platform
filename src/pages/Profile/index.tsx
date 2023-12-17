@@ -3,10 +3,8 @@ import './Profile.scss';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import { grey, pink } from '@mui/material/colors';
-import ClearIcon from '@mui/icons-material/Clear';
 import styled from '@emotion/styled';
-import axios from 'axios';
-import Inputs from './components/Inputs/Index';
+import Inputs from './Inputs/Index';
 import { useState } from 'react';
 import { IProfile } from './types';
 
@@ -30,9 +28,6 @@ const Profile = () => {
             <div className="profile-page__content">
                 <div className="profile-page__title-cont">
                     <h3 className="profile-page__title-text">Settings profile</h3>
-                    <Button sx={{ color: grey[500] }}>
-                        <ClearIcon />
-                    </Button>
                 </div>
                 <div className="profile-page__main-cont">
                     <div className="profile-page__avatar">

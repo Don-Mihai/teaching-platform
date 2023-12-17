@@ -7,11 +7,11 @@
         flex-direction: column;
         justify-content: center;
         height: 100vh;
+        width: 100vh;
     }
     &__title-cont {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
         background-color: #f7f7f7;
     }
     &__title-text {

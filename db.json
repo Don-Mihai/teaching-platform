@@ -11,6 +11,12 @@
       "email": "rnagumanov57@gmail.com",
       "password": "111111111111D",
       "id": 2
+    },
+    {
+      "name": "Моисей",
+      "email": "test@mail.ru",
+      "password": "M00000000",
+      "id": 3
     }
   ]
 }

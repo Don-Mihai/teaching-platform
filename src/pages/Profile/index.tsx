@@ -5,22 +5,31 @@ import Avatar from '@mui/material/Avatar';
 import { grey, pink } from '@mui/material/colors';
 import styled from '@emotion/styled';
 import Inputs from './Inputs/Index';
-import { useState } from 'react';
-import { IProfile } from './types';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { IProfile, initState } from './types';
+import axios from 'axios';
 
 const Input = styled('input')({
     display: 'none',
 });
 
 const Profile = () => {
-    // todo: сделайть работу только с одним пользователем.
-    const [usersList, setUsersList] = useState<IProfile[]>([]);
+    const [formValues, setFormValues] = useState<Partial<IProfile>>(initState);
 
-    const addUser = (newUser: IProfile) => {
-        setUsersList([...usersList, newUser]);
+    useEffect(() => {
+        fetchUser();
+    }, []);
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setFormValues({ ...formValues, [name]: value });
     };
 
-    console.log('usersList >>>', usersList);
+    const handleSubmit = (event: any) => {};
+
+    const fetchUser = async () => {
+        await axios.get(`http://localhost:3001/users/${localStorage.getItem('userId')}`);
+    };
 
     return (
         <div className="profile-page">
@@ -43,7 +52,7 @@ const Profile = () => {
                             </label>
                         </span>
                     </div>
-                    <Inputs addUser={addUser} />
+                    <Inputs handleChange={handleChange} handleSubmit={handleSubmit} formValues={formValues} />
                 </div>
             </div>
         </div>

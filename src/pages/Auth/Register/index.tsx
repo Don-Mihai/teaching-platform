@@ -37,7 +37,8 @@ const Register = ({ onChange, formValues }: Props) => {
         setError(error);
 
         if (isValid) {
-            await axios.post('http://localhost:3001/users', formValues);
+            const user = (await axios.post('http://localhost:3001/users', formValues)).data;
+            localStorage.setItem('userId', user.id);
             navigate('/modules');
         }
     };

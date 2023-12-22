@@ -7,18 +7,25 @@
         flex-direction: column;
         justify-content: center;
         height: 100vh;
-        width: 100vh;
     }
+
+    &__sub-cont {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #f7f7f7;
+    }
+
     &__title-cont {
         display: flex;
         justify-content: center;
-        background-color: #f7f7f7;
     }
     &__title-text {
         padding: 5px;
         font-weight: 500;
     }
     &__main-cont {
+        width: auto;
     }
     &__avatar {
         display: flex;

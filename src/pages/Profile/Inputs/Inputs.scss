@@ -1,6 +1,10 @@
 .profile-component {
     margin: 15px;
 
+    &__input-img {
+        margin-bottom: 15px;
+    }
+
     &__input-email {
         display: flex;
         margin-bottom: 15px;

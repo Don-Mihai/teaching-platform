@@ -7,10 +7,12 @@
       "id": 1
     },
     {
-      "firstName": "Руслан",
+      "firstName": "Ruslan",
       "email": "rnagumanov57@gmail.com",
-      "password": "111111111111D",
-      "id": 2
+      "password": "12345678D",
+      "id": 2,
+      "lastName": "Nagumanov",
+      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg"
     },
     {
       "firstName": "Моисей",

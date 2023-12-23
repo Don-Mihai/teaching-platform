@@ -68,6 +68,16 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                     label={'Last Name'}
                 ></TextField>
             </div>
+            <div className="profile-component__input-last-name">
+                <TextField
+                    name="picture"
+                    type="text"
+                    value={formValues?.[PROFILE_KEYS.PICTURE]}
+                    onChange={handleChange}
+                    fullWidth
+                    label={'Profile Picture Link'}
+                ></TextField>
+            </div>
             <div className="profile-component__button-save">
                 <Button onClick={handleSubmit} size="large" sx={{ textTransform: 'none' }} fullWidth variant="contained">
                     Save changes

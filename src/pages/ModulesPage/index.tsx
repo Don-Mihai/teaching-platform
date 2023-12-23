@@ -3,6 +3,7 @@ import Header from '../../components/Header';
 import Card from '../../components/Card';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { PCard } from './types';
 
 const ModulesPage = () => {
 
@@ -22,7 +23,7 @@ const ModulesPage = () => {
             <Header />
             <div className="modules-page__content">
                 <div className="modules-page__modules">
-                    {cardData.map((card: any) => (
+                    {cardData.map((card: PCard) => (
                         <Card cardData={card} />
                     ))}
                 </div>

@@ -1,6 +1,6 @@
 export interface PCard {
-    firstName: string;
-    email: string;
-    password: string;
-    id: string;
+    src: string;
+    title: string;
+    subtitle: string;
+    footer: string;
 }

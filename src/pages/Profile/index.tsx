@@ -21,7 +21,12 @@ const Profile = () => {
         setFormValues({ ...formValues, [name]: value });
     };
 
-    const handleSubmit = (event: any) => {};
+    const handleSubmit = (event: any) => {
+        //Сделать функцию которая использует patch или put чтобы она 
+        //перезаписала и дополнила данные в БД
+        
+    };
+    
 
     const fetchUser = async () => {
         const user = (await axios.get(`http://localhost:3001/users/${localStorage.getItem('userId')}`)).data;

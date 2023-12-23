@@ -1,8 +1,22 @@
 import './ModulesPage.scss';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
-import cardData from '../../utils/cards';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 const ModulesPage = () => {
+
+  const [cardData, setCardData] = useState([])
+
+    useEffect(() => {
+        fetchCards();
+    }, []);
+
+    const fetchCards = async () => {
+        const cards = (await axios.get(`http://localhost:3001/cards`)).data;
+        setCardData(cards)
+    };
+
     return (
         <div className="modules-page">
             <Header />

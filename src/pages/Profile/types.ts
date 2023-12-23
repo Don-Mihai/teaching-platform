@@ -3,7 +3,7 @@ export interface IProfile {
     [PROFILE_KEYS.PASSWORD]: string;
     [PROFILE_KEYS.FIRST_NAME]: string;
     [PROFILE_KEYS.LAST_NAME]: string;
-    [PROFILE_KEYS.PICTURE]: string;
+    [PROFILE_KEYS.URL]: string;
     id: number;
 }
 
@@ -12,11 +12,18 @@ export enum PROFILE_KEYS {
     PASSWORD = 'password',
     FIRST_NAME = 'firstName',
     LAST_NAME = 'lastName',
-    PICTURE = 'picture'
+    URL = 'url',
 }
 
 export interface UserProfileProps {
     id: number;
 }
 
-export const initState = { [PROFILE_KEYS.EMAIL]: '', [PROFILE_KEYS.PASSWORD]: '', [PROFILE_KEYS.FIRST_NAME]: '', [PROFILE_KEYS.LAST_NAME]: '', id: 0 };
+export const initState = {
+    [PROFILE_KEYS.EMAIL]: '',
+    [PROFILE_KEYS.PASSWORD]: '',
+    [PROFILE_KEYS.LAST_NAME]: '',
+    [PROFILE_KEYS.FIRST_NAME]: '',
+    [PROFILE_KEYS.URL]: '',
+    id: 0,
+};

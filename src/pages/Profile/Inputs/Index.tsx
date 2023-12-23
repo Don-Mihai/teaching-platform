@@ -1,17 +1,29 @@
 import { Button, TextField } from '@mui/material';
-import { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { IProfile, PROFILE_KEYS, initState } from '../types';
+import { ChangeEvent, FC, FormEvent } from 'react';
+import { IProfile, PROFILE_KEYS } from '../types';
 import './Inputs.scss';
 
 interface AddUserProps {
     formValues: Partial<IProfile>;
     handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-    handleSubmit: (event: any) => void;
+    handleSubmit: (event: FormEvent) => void;
 }
 
 const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) => {
     return (
         <div className="profile-component">
+            <div className="profile-component__input-img">
+                <TextField
+                    name="url"
+                    type="text"
+                    value={formValues?.[PROFILE_KEYS.URL]}
+                    fullWidth
+                    sx={{ border: 'none' }}
+                    onChange={handleChange}
+                    variant="outlined"
+                    label="Url"
+                />
+            </div>
             <div className="profile-component__input-email">
                 <TextField
                     name="email"

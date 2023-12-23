@@ -1,6 +1,6 @@
-export interface PCard {
-    firstName: string;
-    email: string;
-    password: string;
-    id: string;
+export interface ICard {
+    src: string;
+    title: string;
+    subtitle: string;
+    footer: string;
 }

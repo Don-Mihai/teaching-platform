@@ -1,4 +1,4 @@
-export interface PCard {
+export interface ICard {
     src: string;
     title: string;
     subtitle: string;

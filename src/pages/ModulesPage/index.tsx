@@ -6,8 +6,7 @@ import axios from 'axios';
 import { ICard } from './types';
 
 const ModulesPage = () => {
-
-  const [cardData, setCardData] = useState([])
+    const [cardData, setCardData] = useState([]);
 
     useEffect(() => {
         fetchCards();
@@ -15,7 +14,7 @@ const ModulesPage = () => {
 
     const fetchCards = async () => {
         const cards = (await axios.get(`http://localhost:3001/cards`)).data;
-        setCardData(cards)
+        setCardData(cards);
     };
 
     return (
@@ -24,7 +23,7 @@ const ModulesPage = () => {
             <div className="modules-page__content">
                 <div className="modules-page__modules">
                     {cardData.map((card: ICard) => (
-                        <Card cardData={card} />
+                        <Card key={card.id} cardData={card} />
                     ))}
                 </div>
             </div>

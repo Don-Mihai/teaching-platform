@@ -67,7 +67,7 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                     fullWidth
                     label={'Last Name'}
                 ></TextField>
-            </div>            
+            </div>
             <div className="profile-component__button-save">
                 <Button onClick={handleSubmit} size="large" sx={{ textTransform: 'none' }} fullWidth variant="contained">
                     Save changes

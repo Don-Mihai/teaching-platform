@@ -44,3 +44,18 @@ export const validatePassword = (formValues: Partial<PRegister>) => {
 
     return {};
 };
+
+export const calculateModuleNumber = (totalLessons: number | string) => {
+    if (Number(totalLessons) === 0) {
+        return 1;
+    }
+
+    const lessonsPerModule = 9;
+    const calculatedNum = Number(totalLessons) / lessonsPerModule;
+
+    if (Number.isInteger(calculatedNum)) {
+        return calculatedNum + 1;
+    }
+
+    return Math.ceil(calculatedNum);
+};

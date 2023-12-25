@@ -40,7 +40,7 @@ const Profile = () => {
                     </div>
                     <div className="profile-page__main-cont">
                         <div className="profile-page__avatar">
-                            <Avatar src={`${formValues?.[PROFILE_KEYS.URL]}`} sx={{ bgcolor: pink[300], width: 80, height: 80, margin: '20px' }}>
+                            <Avatar src={`${formValues?.[PROFILE_KEYS.URL]}`} sx={{ bgcolor: pink[300], width: 100, height: 100, margin: '20px' }}>
                                 {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
                             </Avatar>
                             <span className="profile-page__avatar-label">JPG or PNG, min 100 x 100 pixel, to 5 Mb </span>

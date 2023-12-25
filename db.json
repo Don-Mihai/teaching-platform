@@ -149,6 +149,68 @@
       "title": "24-12-2023 13:50",
       "moduleId": 2,
       "id": 11
+    },
+    {
+      "userId": "2",
+      "createDate": "25-12-2023 20:42",
+      "title": "25-12-2023 20:42",
+      "moduleId": 2,
+      "id": 12
+    },
+    {
+      "userId": "2",
+      "createDate": "25-12-2023 20:42",
+      "title": "25-12-2023 20:42",
+      "moduleId": 2,
+      "id": 13
+    },
+    {
+      "userId": "2",
+      "createDate": "25-12-2023 20:42",
+      "title": "25-12-2023 20:42",
+      "moduleId": 2,
+      "id": 14
+    },
+    {
+      "userId": "2",
+      "createDate": "25-12-2023 20:42",
+      "title": "25-12-2023 20:42",
+      "moduleId": 2,
+      "id": 15
+    },
+    {
+      "userId": "2",
+      "createDate": "25-12-2023 20:42",
+      "title": "25-12-2023 20:42",
+      "moduleId": 2,
+      "id": 16
+    },
+    {
+      "userId": "2",
+      "createDate": "25-12-2023 20:42",
+      "title": "25-12-2023 20:42",
+      "moduleId": 2,
+      "id": 17
+    },
+    {
+      "userId": "2",
+      "createDate": "25-12-2023 20:42",
+      "title": "25-12-2023 20:42",
+      "moduleId": 2,
+      "id": 18
+    }
+  ],
+  "groups": [
+    {
+      "group": "26.08.2023",
+      "students": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
     }
   ]
 }

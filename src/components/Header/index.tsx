@@ -4,6 +4,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { PAGE_ROUTES } from '../../utils/types';
 import { Avatar } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import PersonIcon from '@mui/icons-material/Person';
+import PeopleIcon from '@mui/icons-material/People';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
@@ -46,53 +50,48 @@ const Header = () => {
                 <Link to={PAGE_ROUTES.Modules}>
                     <Button
                         fullWidth
-                        size="large"
                         variant={navigate.pathname === PAGE_ROUTES.Modules ? 'contained' : undefined}
                         color={navigate.pathname === PAGE_ROUTES.Modules ? 'success' : undefined}
+                        startIcon={<ViewModuleIcon />}
                     >
-                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios/50/FFFFFF/module.png" alt="module" />
-
-                        <span className="text">⠀Модули</span>
+                        {!isFold && 'Модули'}
                     </Button>
                 </Link>
 
                 <Link to={PAGE_ROUTES.Listeners}>
                     <Button
                         fullWidth
-                        size="large"
                         variant={navigate.pathname === PAGE_ROUTES.Listeners ? 'contained' : undefined}
                         color={navigate.pathname === PAGE_ROUTES.Listeners ? 'success' : undefined}
+                        startIcon={<PeopleIcon />}
                     >
-                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios/50/FFFFFF/queue.png" alt="listeners" />
-                        <span className="text">⠀Слушатели</span>
+                        {!isFold && 'Слушатели'}
                     </Button>
                 </Link>
 
                 <Link to={PAGE_ROUTES.Tasks}>
                     <Button
                         fullWidth
-                        size="large"
                         variant={navigate.pathname === PAGE_ROUTES.Tasks ? 'contained' : undefined}
                         color={navigate.pathname === PAGE_ROUTES.Tasks ? 'success' : undefined}
+                        startIcon={<FormatListBulletedIcon />}
                     >
-                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios-filled/50/FFFFFF/todo-list.png" alt="todo-list" />
-                        <span className="text">⠀Задания</span>
+                        {!isFold && 'Задания'}
                     </Button>
                 </Link>
 
                 <Link to={PAGE_ROUTES.Profile}>
                     <Button
                         fullWidth
-                        size="large"
                         variant={navigate.pathname === PAGE_ROUTES.Profile ? 'contained' : undefined}
                         color={navigate.pathname === PAGE_ROUTES.Profile ? 'success' : undefined}
+                        startIcon={<PersonIcon />}
                     >
-                        <img className="icon" width="25" height="25" src="https://img.icons8.com/ios/50/FFFFFF/guest-male.png" alt="profile" />
-                        <span className="text">⠀Профиль</span>
+                        {!isFold && 'Профиль'}
                     </Button>
                 </Link>
                 {/* <a href="https://jazz.sber.ru/wd7a9d?psw=OBgRDB8LDgVeCBYaQB8ZFlECCw" target='_blank'> */}
-                <Button onClick={createLesson} className="header-component__button" fullWidth variant="contained" startIcon={<AddIcon />}>
+                <Button fullWidth variant="contained" onClick={createLesson} className="header-component__button" startIcon={<AddIcon />}>
                     {!isFold && 'Запустить урок'}
                 </Button>
                 {/* </a> */}

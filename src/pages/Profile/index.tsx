@@ -8,6 +8,7 @@ import { IProfile, PROFILE_KEYS, initState } from './types';
 import axios from 'axios';
 // import AvatarProfile from './AvatarProfile';
 import { Avatar } from '@mui/material';
+import FileDrop from '../../components/FileDrop';
 
 const Profile = () => {
     const [formValues, setFormValues] = useState<Partial<IProfile>>(initState);
@@ -40,9 +41,12 @@ const Profile = () => {
                     </div>
                     <div className="profile-page__main-cont">
                         <div className="profile-page__avatar">
-                            <Avatar src={`${formValues?.[PROFILE_KEYS.URL]}`} sx={{ bgcolor: pink[300], width: 100, height: 100, margin: '20px' }}>
-                                {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
-                            </Avatar>
+                            <FileDrop onSendFiles={() => {}}>
+                                <Avatar src={`${formValues?.[PROFILE_KEYS.URL]}`} sx={{ bgcolor: pink[300], width: 100, height: 100, margin: '20px' }}>
+                                    {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
+                                </Avatar>
+                            </FileDrop>
+
                             <span className="profile-page__avatar-label">JPG or PNG, min 100 x 100 pixel, to 5 Mb </span>
                             <span className="profile-page__avatar-label-new">
                                 Drag your photo or

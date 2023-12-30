@@ -4,6 +4,7 @@ export enum PAGE_ROUTES {
     Listeners = '/listeners',
     Tasks = '/tasks',
     Profile = '/profile',
+	Lessons = '/lessons',
 }
 
 export interface IGroups {

@@ -12,6 +12,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { calculateModuleNumber } from '../../utils/utils';
+import BookIcon from '@mui/icons-material/Book';
 
 const Header = () => {
     const [isFold, setIsFold] = useState<boolean>(true);
@@ -88,6 +89,16 @@ const Header = () => {
                         startIcon={<PersonIcon />}
                     >
                         {!isFold && 'Профиль'}
+                    </Button>
+                </Link>
+                <Link to={PAGE_ROUTES.Lessons}>
+                    <Button
+                        fullWidth
+                        variant={navigate.pathname === PAGE_ROUTES.Lessons ? 'contained' : undefined}
+                        color={navigate.pathname === PAGE_ROUTES.Lessons ? 'success' : undefined}
+                        startIcon={<BookIcon />}
+                    >
+                        {!isFold && 'Уроки'}
                     </Button>
                 </Link>
                 {/* <a href="https://jazz.sber.ru/wd7a9d?psw=OBgRDB8LDgVeCBYaQB8ZFlECCw" target='_blank'> */}

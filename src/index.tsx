@@ -25,6 +25,10 @@ const router = createBrowserRouter([
         path: PAGE_ROUTES.Profile,
         element: <Profile />,
     },
+    {
+        path: PAGE_ROUTES.Lessons,
+        element: <Profile />,
+    },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);

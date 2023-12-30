@@ -69,7 +69,7 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                 ></TextField>
             </div>
             <div className="profile-component__button-save">
-                <Button onClick={handleSubmit} size="large" sx={{ textTransform: 'none' }} fullWidth variant="contained">
+                <Button onClick={handleSubmit} size="large" sx={{ textTransform: 'none' }} variant="contained">
                     Save changes
                 </Button>
             </div>

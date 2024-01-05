@@ -65,7 +65,7 @@ const FileDrop = ({ children, borderRadius, onSendFiles }: Props) => {
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
                 >
-                    <AddAPhotoIcon color="warning" />
+                    {/* <AddAPhotoIcon color="warning" /> */}
                 </div>
             )}
         </form>

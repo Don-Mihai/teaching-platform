@@ -14,9 +14,6 @@ const Lessons = () => {
     const [lessons, setLessons] = useState<ILesson[]>([]);
     const [id, setId] = useState<number>(0);
 
-   
-    const [id,setId] = useState<number>(0)
-
     useEffect(() => {
         fetchData();
     }, []);

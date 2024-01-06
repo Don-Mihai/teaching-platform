@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Header from '../../components/Header';
+import './Lessons.scss';
+import Lesson from './Lesson';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
 export interface ILesson {
     id: number;
@@ -8,6 +12,7 @@ export interface ILesson {
 
 const Lessons = () => {
     const [lessons, setLessons] = useState<ILesson[]>([]);
+    const [id, setId] = useState<number>(0);
 
     useEffect(() => {
         fetchData();
@@ -18,15 +23,42 @@ const Lessons = () => {
         setLessons(lessons);
     };
 
+    const onLessonClick = (id: number) => {
+        setId(id);
+    };
+
+    const onCloseModal = () => {
+        setId(0);
+    };
+
+    const onRemoveLesson = async (id: number) => {
+        try {
+            await axios.delete(`http://localhost:3001/lessons/${id}`);
+            fetchData();
+        } catch (error) {
+            console.error('Error removing lesson:', error);
+        }
+    };
+
     return (
-        <div>
-            {lessons.map(item => {
-                return <div>{item?.title}</div>;
-            })}
+        <div className="lessons-page">
+            <Header />
+            <div className="lessons-page__content">
+                {lessons.map(item => {
+                    return (
+                        <div className="lessons-page__main">
+                            <div key={item.id} onClick={() => onLessonClick(item.id)} className="lesson">
+                                <h3>{item?.title}</h3>
+                            </div>
+                            <button onClick={() => onRemoveLesson(item.id)}>
+                                <RemoveCircleOutlineIcon />
+                            </button>
+                        </div>
+                    );
+                })}
+            </div>
+            <Lesson id={id} onCloseModal={onCloseModal} title={lessons.find(item => item.id === id)?.title || ''} />
         </div>
-
-
-
     );
 };
 

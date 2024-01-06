@@ -12,18 +12,6 @@ interface AddUserProps {
 const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) => {
     return (
         <div className="profile-component">
-            <div className="profile-component__input-img">
-                <TextField
-                    name="url"
-                    type="text"
-                    value={formValues?.[PROFILE_KEYS.URL]}
-                    fullWidth
-                    sx={{ border: 'none' }}
-                    onChange={handleChange}
-                    variant="outlined"
-                    label="Url"
-                />
-            </div>
             <div className="profile-component__input-email">
                 <TextField
                     name="email"

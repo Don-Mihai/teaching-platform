@@ -14,6 +14,9 @@ const Lessons = () => {
     const [lessons, setLessons] = useState<ILesson[]>([]);
     const [id, setId] = useState<number>(0);
 
+   
+    const [id,setId] = useState<number>(0)
+
     useEffect(() => {
         fetchData();
     }, []);
@@ -59,6 +62,9 @@ const Lessons = () => {
             </div>
             <Lesson id={id} onCloseModal={onCloseModal} title={lessons.find(item => item.id === id)?.title || ''} />
         </div>
+            
+       
+       
     );
 };
 

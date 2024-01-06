@@ -41,29 +41,11 @@ const Profile = () => {
                     </div>
                     <div className="profile-page__main-cont">
                         <div className="profile-page__avatar">
-<<<<<<< HEAD
-                            <FileDrop onSendFiles={() => { }}>
+                            <FileDrop onSendFiles={() => {}}>
                                 <Avatar src={`${formValues?.[PROFILE_KEYS.URL]}`} sx={{ bgcolor: pink[300], width: 100, height: 100, margin: '20px' }}>
                                     {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
                                 </Avatar>
                             </FileDrop>
-=======
-                            <FileDrop onSendFiles={() => {}}>
-                                <Avatar sx={{ bgcolor: pink[300], width: 100, height: 100, margin: '20px' }}>
-                                    {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
-                                </Avatar>
-                            </FileDrop>
-
->>>>>>> b86afed7297cd1de8d65dc1fe3941eaf51fd0be5
-                            <span className="profile-page__avatar-label">JPG or PNG, min 100 x 100 pixel, to 5 Mb </span>
-                            <label className="profile-page__label-file-drop" htmlFor="contained-button-file">
-                                Drag your photo or
-                                <FileDrop onSendFiles={() => {}}>
-                                    <Button sx={{ boxShadow: 'none', textTransform: 'none' }} component="span">
-                                        upload a new image
-                                    </Button>
-                                </FileDrop>
-                            </label>
                         </div>
                         <Inputs handleChange={handleChange} handleSubmit={handleSubmit} formValues={formValues} />
                     </div>

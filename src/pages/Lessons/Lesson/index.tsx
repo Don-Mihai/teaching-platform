@@ -1,33 +1,10 @@
-<<<<<<< HEAD
-import { Dialog } from "@mui/material";
-import './Lesson.scss';
-import FileDrop from "../../../components/FileDrop";
-
-=======
 import { Button, Dialog } from '@mui/material';
 import './Lesson.scss';
 import FileDrop from '../../../components/FileDrop';
->>>>>>> b86afed7297cd1de8d65dc1fe3941eaf51fd0be5
 
 interface Props {
     onCloseModal: () => void;
     id: number;
-<<<<<<< HEAD
-}
-
-const Lesson = ({ id, onCloseModal, }: Props) => {
-    return (
-        <Dialog open={Boolean(id)} onClose={onCloseModal}>
-            <div className="modal-lesson">Урок {id}</div>
-            <FileDrop onSendFiles={() => { }}>
-                <div className=""></div>
-            </FileDrop>
-        </Dialog >
-    );
-}
-
-export default Lesson;
-=======
     title: string;
 }
 
@@ -51,4 +28,3 @@ const Lesson = ({ id, onCloseModal, title }: Props) => {
 };
 
 export default Lesson;
->>>>>>> b86afed7297cd1de8d65dc1fe3941eaf51fd0be5

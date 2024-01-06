@@ -42,11 +42,7 @@ const FileDrop = ({ children, borderRadius, onSendFiles }: Props) => {
         const fileList: FileList = evt.target.files || ({} as FileList);
         const files: File[] = [];
 
-<<<<<<< HEAD
-        // @ts-ignore 
-=======
         // @ts-ignore
->>>>>>> b86afed7297cd1de8d65dc1fe3941eaf51fd0be5
         for (const item of fileList) {
             files.push(item);
         }
@@ -69,19 +65,11 @@ const FileDrop = ({ children, borderRadius, onSendFiles }: Props) => {
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
                 >
-<<<<<<< HEAD
-                    <AddAPhotoIcon color="warning" />
-=======
                     {/* <AddAPhotoIcon color="warning" /> */}
->>>>>>> b86afed7297cd1de8d65dc1fe3941eaf51fd0be5
                 </div>
             )}
         </form>
     );
 };
 
-<<<<<<< HEAD
 export default FileDrop;
-=======
-export default FileDrop;
->>>>>>> b86afed7297cd1de8d65dc1fe3941eaf51fd0be5

@@ -8,6 +8,8 @@ import Listeners from './pages/Listeners';
 import { PAGE_ROUTES } from './utils/types';
 import Profile from './pages/Profile';
 import Lessons from './pages/Lessons';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 const router = createBrowserRouter([
     {
@@ -33,4 +35,8 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(<RouterProvider router={router} />);
+root.render(
+    <Provider store={store}>
+        <RouterProvider router={router} />
+    </Provider>
+);

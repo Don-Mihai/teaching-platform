@@ -28,6 +28,11 @@
     &__main-cont {
         width: 90vh;
     }
+
+    &__label-file-drop {
+        display: flex;
+        align-items: center;
+    }
     &__avatar {
         display: flex;
         flex-direction: column;

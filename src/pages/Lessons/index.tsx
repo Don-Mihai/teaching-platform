@@ -1,5 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import Header from '../../components/Header';
+import './Lessons.scss'
+import { useNavigate } from 'react-router-dom';
+import Lesson from './Lesson';
 
 interface ILesson {
     id: number;
@@ -8,6 +12,9 @@ interface ILesson {
 
 const Lessons = () => {
     const [lessons, setLessons] = useState<ILesson[]>([]);
+
+   
+    const [id,setId] = useState<number>(0)
 
     useEffect(() => {
         fetchData();
@@ -18,12 +25,28 @@ const Lessons = () => {
         setLessons(lessons);
     };
 
+
+    const onLessonClick = (id:number) => {
+      
+        setId(id)
+    }
+
+    const onCloseModal = () => {
+        setId(0)
+    }
+
     return (
-        <div>
-            {lessons.map(item => {
-                return <div>{item?.title}</div>;
-            })}
+       
+             <div className="lessons-page">
+            <Header />
+            <div className="lessons-page__content">{lessons.map(item => {
+                return <div  key={item.id} className='lesson' onClick={ ()=> onLessonClick(item.id)}>{item?.title}</div>;
+            })}</div>
+            <Lesson id={id} onCloseModal={onCloseModal}/>
         </div>
+            
+       
+       
     );
 };
 

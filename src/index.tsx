@@ -7,6 +7,7 @@ import ModulesPage from './pages/ModulesPage';
 import Listeners from './pages/Listeners';
 import { PAGE_ROUTES } from './utils/types';
 import Profile from './pages/Profile';
+import Lessons from './pages/Lessons';
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
     },
     {
         path: PAGE_ROUTES.Lessons,
-        element: <Profile />,
+        element: <Lessons />,
     },
 ]);
 

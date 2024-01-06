@@ -1,18 +1,30 @@
-<<<<<<< HEAD
-.modal-lesson {
-    width: 400px;
-    height: 600px;
-}
-=======
-.modal-item {
+.lessons-page {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__lesson {
-        text-align: center;
-        width: 400px;
+    height: 100%;
 
-        height: 600px;
+    &__content {
+        flex-grow: 1;
+        overflow: auto;
+    }
+
+    &__main {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        width: 50%;
     }
 }
->>>>>>> b86afed7297cd1de8d65dc1fe3941eaf51fd0be5
+
+.lesson {
+    padding: 20px;
+    background-color: #d2cfcf;
+    transition: 0.15s;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+        transform: scaleY(1.1);
+        box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.6);
+    }
+}

@@ -8,13 +8,13 @@ import PersonIcon from '@mui/icons-material/Person';
 import PeopleIcon from '@mui/icons-material/People';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
 import { calculateModuleNumber } from '../../utils/utils';
 import BookIcon from '@mui/icons-material/Book';
 
-const Header = () => {
+const Header = memo(() => {
     const [isFold, setIsFold] = useState<boolean>(true);
     const navigate = useLocation();
     // todo: при клике на стрелку скрывать и показывать
@@ -109,6 +109,6 @@ const Header = () => {
             </nav>
         </header>
     );
-};
+});
 
 export default Header;

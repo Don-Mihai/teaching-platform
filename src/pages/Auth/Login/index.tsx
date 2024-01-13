@@ -6,6 +6,8 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { setUser } from '../../../redux/User';
+import { useDispatch } from 'react-redux';
 
 interface Props {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -16,12 +18,13 @@ const Login = ({ onChange, formValues }: Props) => {
     const [open, setOpen] = useState<boolean>(false);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch()
 
     const onSignIn = async () => {
         const user = (await axios.get(`http://localhost:3001/users?email=${formValues.email}&password=${formValues.password}`)).data[0];
 
         if (user?.id) {
-            localStorage.setItem('userId', user.id);
+            dispatch(setUser(user))
             navigate('/modules');
         } else {
             setOpen(true);

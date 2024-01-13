@@ -9,9 +9,13 @@ import axios from 'axios';
 
 import { Avatar } from '@mui/material';
 import FileDrop from '../../components/FileDrop';
+import { useSelector } from 'react-redux';
+import { RootState, store } from '../../redux/store';
 
 const Profile = () => {
     const [formValues, setFormValues] = useState<Partial<IProfile>>(initState);
+    const lessons = useSelector((store: RootState) => store.lesson.lessons);
+    const user = useSelector((store: RootState) => store.user.user);
 
     useEffect(() => {
         fetchUser();
@@ -27,7 +31,6 @@ const Profile = () => {
     };
 
     const fetchUser = async () => {
-        const user = (await axios.get(`http://localhost:3001/users/${localStorage.getItem('userId')}`)).data;
         setFormValues(user);
     };
 
@@ -41,7 +44,7 @@ const Profile = () => {
                     </div>
                     <div className="profile-page__main-cont">
                         <div className="profile-page__avatar">
-                            <FileDrop onSendFiles={() => {}}>
+                            <FileDrop onSendFiles={() => { }}>
                                 <Avatar src={`${formValues?.[PROFILE_KEYS.URL]}`} sx={{ bgcolor: pink[300], width: 100, height: 100, margin: '20px' }}>
                                     {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
                                 </Avatar>

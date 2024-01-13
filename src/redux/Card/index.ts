@@ -1,14 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ICard } from "../../pages/ModulesPage/types";
+import { Card } from "./types";
 import axios from "axios";
+import { ICard } from "./types";
 
-export interface Card {
-    cards: ICard[];
-}
 
 const initialState: Card = {
     cards: []
 }
+
 
 export const cardsSlice  = createSlice({
     name: 'card',

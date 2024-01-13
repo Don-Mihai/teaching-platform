@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import Card from '../../components/Card';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { ICard } from './types';
+import { ICard } from '../../redux/Card/types';
 
 const ModulesPage = () => {
     const [cardData, setCardData] = useState([]);

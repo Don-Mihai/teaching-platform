@@ -22,9 +22,9 @@ export const userSlice = createSlice({
         // increment: state => {
         //     state.value = 5;
         // },
-        setUserId: (state, action: PayloadAction<number>) => {
-            localStorage.setItem('userId', String(action.payload));
-            state.userId = String(action.payload);
+        setUserId: (state, action: PayloadAction<IUser>) => {
+            localStorage.setItem('userId', String(action.payload.id));
+            state.user = action.payload;
         },
     },
 });

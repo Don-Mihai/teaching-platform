@@ -24,7 +24,7 @@ const Login = ({ onChange, formValues }: Props) => {
         const user = (await axios.get(`http://localhost:3001/users?email=${formValues.email}&password=${formValues.password}`)).data[0];
 
         if (user?.id) {
-            dispatch(setUserId(user.id));
+            dispatch(setUserId(user));
 
             navigate('/modules');
         } else {

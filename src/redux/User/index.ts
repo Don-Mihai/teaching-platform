@@ -7,12 +7,10 @@ export interface IUser {
 
 export interface UserState {
     user: IUser;
-    userId: string;
 }
 
 const initialState: UserState = {
     user: {} as IUser,
-    userId: '',
 };
 
 export const userSlice = createSlice({
@@ -22,13 +20,13 @@ export const userSlice = createSlice({
         // increment: state => {
         //     state.value = 5;
         // },
-        setUserId: (state, action: PayloadAction<IUser>) => {
+        setUser: (state, action: PayloadAction<IUser>) => {
             localStorage.setItem('userId', String(action.payload.id));
             state.user = action.payload;
         },
     },
 });
 
-export const { setUserId } = userSlice.actions;
+export const { setUser } = userSlice.actions;
 
 export default userSlice.reducer;

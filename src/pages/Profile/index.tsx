@@ -15,6 +15,7 @@ import { RootState } from '../../redux/store';
 const Profile = () => {
     const [formValues, setFormValues] = useState<Partial<IProfile>>(initState);
     const lessons = useSelector((store: RootState) => store.lesson.lessons);
+	const user = useSelector((store: RootState) => store.user.user);
 
     useEffect(() => {
         fetchUser();
@@ -30,7 +31,6 @@ const Profile = () => {
     };
 
     const fetchUser = async () => {
-        const user = (await axios.get(`http://localhost:3001/users/${localStorage.getItem('userId')}`)).data;
         setFormValues(user);
     };
 

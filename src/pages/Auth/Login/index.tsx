@@ -6,7 +6,7 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setUserId } from '../../../redux/User';
+import { setUser } from '../../../redux/User';
 import { useDispatch } from 'react-redux';
 
 interface Props {
@@ -24,7 +24,7 @@ const Login = ({ onChange, formValues }: Props) => {
         const user = (await axios.get(`http://localhost:3001/users?email=${formValues.email}&password=${formValues.password}`)).data[0];
 
         if (user?.id) {
-            dispatch(setUserId(user));
+            dispatch(setUser(user));
 
             navigate('/modules');
         } else {

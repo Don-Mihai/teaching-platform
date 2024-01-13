@@ -4,6 +4,10 @@ import Header from '../../components/Header';
 import './Lessons.scss';
 import Lesson from './Lesson';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLessons } from '../../redux/Lesson';
+import { AppDispatch, RootState } from '../../redux/store';
+
 
 export interface ILesson {
     id: number;
@@ -13,14 +17,30 @@ export interface ILesson {
 const Lessons = () => {
     const [lessons, setLessons] = useState<ILesson[]>([]);
     const [id, setId] = useState<number>(0);
+    const lessons = useSelector((store: RootState) => store.lesson.lessons);
+    const [id, setId] = useState<number>(0);
+    const dispatch = useDispatch<AppDispatch>();
+
 
     useEffect(() => {
-        fetchData();
+        dispatch(getLessons());
     }, []);
 
-    const fetchData = async () => {
-        const lessons = (await axios.get(' http://localhost:3001/lessons')).data;
-        setLessons(lessons);
+    const onLessonClick = (id: number) => {
+        setId(id);
+    };
+
+    const onCloseModal = () => {
+        setId(0);
+    };
+
+    const onRemoveLesson = async (id: number) => {
+        try {
+            await axios.delete(`http://localhost:3001/lessons/${id}`);
+            dispatch(getLessons());
+        } catch (error) {
+            console.error('Error removing lesson:', error);
+        }
     };
 
     const onLessonClick = (id: number) => {

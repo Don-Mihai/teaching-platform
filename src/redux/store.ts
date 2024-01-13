@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import lessonReducer from './Lesson';
+import lesson from './Lesson';
+import user from './User';
 
 export const store = configureStore({
     reducer: {
-        lesson: lessonReducer,
+        lesson,
+        user,
     },
 });
 

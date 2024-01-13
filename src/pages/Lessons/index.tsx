@@ -8,10 +8,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getLessons } from '../../redux/Lesson';
 import { AppDispatch, RootState } from '../../redux/store';
 
+<<<<<<< HEAD
+
+export interface ILesson {
+    id: number;
+    title: string;
+}
+
+=======
+>>>>>>> d71b4cb586deb9d3408d26b32f28eb0036aeb16f
 const Lessons = () => {
+    const [lessons, setLessons] = useState<ILesson[]>([]);
+    const [id, setId] = useState<number>(0);
     const lessons = useSelector((store: RootState) => store.lesson.lessons);
     const [id, setId] = useState<number>(0);
     const dispatch = useDispatch<AppDispatch>();
+
 
     useEffect(() => {
         dispatch(getLessons());
@@ -29,6 +41,23 @@ const Lessons = () => {
         try {
             await axios.delete(`http://localhost:3001/lessons/${id}`);
             dispatch(getLessons());
+        } catch (error) {
+            console.error('Error removing lesson:', error);
+        }
+    };
+
+    const onLessonClick = (id: number) => {
+        setId(id);
+    };
+
+    const onCloseModal = () => {
+        setId(0);
+    };
+
+    const onRemoveLesson = async (id: number) => {
+        try {
+            await axios.delete(`http://localhost:3001/lessons/${id}`);
+            fetchData();
         } catch (error) {
             console.error('Error removing lesson:', error);
         }

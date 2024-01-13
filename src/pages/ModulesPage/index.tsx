@@ -1,8 +1,7 @@
 import './ModulesPage.scss';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
 import { ICard } from '../../redux/Card/types';
 import { get } from '../../redux/Card';
 import { useDispatch, useSelector } from 'react-redux';

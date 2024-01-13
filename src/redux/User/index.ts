@@ -11,9 +11,6 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        // increment: state => {
-        //     state.value += 1;
-        // },
         setUser: (state, action: PayloadAction<IUser>) => {
             localStorage.setItem('userId', String(action.payload.id));
             state.user = action.payload;

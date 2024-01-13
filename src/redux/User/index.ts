@@ -3,14 +3,6 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { UserState, IUser } from './types'
 
-// export interface IUser {
-//     id: number;
-// }
-
-// export interface UserState {
-//     user: IUser;
-// }
-
 const initialState: UserState = {
     user: {} as IUser,
 };

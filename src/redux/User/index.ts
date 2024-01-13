@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export interface IUser {
     id: number;
@@ -18,7 +19,7 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         // increment: state => {
-        //     state.value = 5;
+        //     state.value += 1;
         // },
         setUser: (state, action: PayloadAction<IUser>) => {
             localStorage.setItem('userId', String(action.payload.id));
@@ -30,3 +31,15 @@ export const userSlice = createSlice({
 export const { setUser } = userSlice.actions;
 
 export default userSlice.reducer;
+
+export const get = createAsyncThunk('user/get', async (): Promise<IUser[] | undefined> => {
+    const user = (await axios.get('http://localhost:3001/user')).data;
+
+    return user;
+});
+
+export const getById = createAsyncThunk('user/getById', async (cardId: number): Promise<IUser[] | undefined> => {
+    const user = (await axios.get(`http://localhost:3001/user/${cardId}`)).data;
+
+    return user;
+});

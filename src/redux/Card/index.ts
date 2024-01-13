@@ -28,6 +28,6 @@ export const get = createAsyncThunk('card/get', async(): Promise<ICard[]| undefi
     return (await axios.get(`http://localhost:3001/cards`)).data
 })
 
-export const getById = createAsyncThunk('card/getById', async(): Promise<ICard[]| undefined>=>{
-    return (await axios.get(`http://localhost:3001/cards/1`)).data
+export const getById = createAsyncThunk('card/getById', async(cardID: number): Promise<ICard[]| undefined>=>{
+    return (await axios.get(`http://localhost:3001/cards/${cardID}`)).data
 })

@@ -8,11 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getLessons } from '../../redux/Lesson';
 import { AppDispatch, RootState } from '../../redux/store';
 
-export interface ILesson {
-    id: number;
-    title: string;
-}
-
 const Lessons = () => {
     const lessons = useSelector((store: RootState) => store.lesson.lessons);
     const [id, setId] = useState<number>(0);

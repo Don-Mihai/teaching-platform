@@ -1,11 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { ILesson } from '../../pages/Lessons';
 import axios from 'axios';
-
-export interface LessonState {
-    lessons: ILesson[];
-}
+import { ILesson, LessonState } from './types';
 
 const initialState: LessonState = {
     lessons: [],

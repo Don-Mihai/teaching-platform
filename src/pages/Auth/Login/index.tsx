@@ -1,13 +1,14 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { INPUTS_KEYS, PRegister } from '../types';
-import axios from 'axios';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setUser } from '../../../redux/User';
+import { auth, setUser } from '../../../redux/User';
 import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../../redux/store';
+import { IUser } from '../../../redux/User/types';
 
 interface Props {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
@@ -18,14 +19,14 @@ const Login = ({ onChange, formValues }: Props) => {
     const [open, setOpen] = useState<boolean>(false);
 
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const onSignIn = async () => {
-        const user = (await axios.get(`http://localhost:3001/users?email=${formValues.email}&password=${formValues.password}`)).data[0];
+        const payload = { email: formValues.email, password: formValues.password };
+        const user = (await dispatch(auth(payload))).payload;
 
+        // @ts-ignore
         if (user?.id) {
-            dispatch(setUser(user));
-
             navigate('/modules');
         } else {
             setOpen(true);

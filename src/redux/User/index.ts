@@ -18,7 +18,7 @@ export const userSlice = createSlice({
     },
     extraReducers(builder) {
         builder.addCase(auth.fulfilled, (state, action) => {
-            state.user = action.payload;
+            state.user = action.payload || ({} as IUser);
         });
     },
 });

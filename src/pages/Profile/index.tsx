@@ -53,8 +53,6 @@ const Profile = () => {
                         <Inputs handleChange={handleChange} handleSubmit={handleSubmit} formValues={formValues} />
                     </div>
                 </div>
-                sdf
-                {lessons.map(item => item.title)}
             </div>
         </div>
     );

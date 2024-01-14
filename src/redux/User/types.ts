@@ -1,5 +1,5 @@
 export interface UserState {
-    user?: IUser;
+    user: IUser;
 }
 export interface IUser {
     id: number;

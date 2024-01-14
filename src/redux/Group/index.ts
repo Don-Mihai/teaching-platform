@@ -31,7 +31,7 @@ export const {} = groupSlice.actions;
 export default groupSlice.reducer;
 
 export const get = createAsyncThunk('groups/get', async (): Promise<IGroup[] | undefined> => {
-    const groups = (await axios.get('http://localhost:3001/lessons')).data;
+    const groups = (await axios.get('lessons')).data;
 
     return groups;
 });

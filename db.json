@@ -1,50 +1,57 @@
 {
   "users": [
-    {},
-    {
-      "firstName": "Ruslan",
-      "email": "rnagumanov57@gmail.com",
-      "password": "12345678D",
-      "id": 2,
-      "lastName": "Nagumanov",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg"
-    },
-    {
-      "firstName": "Моисей",
-      "email": "test@mail.ru",
-      "password": "M00000000",
-      "id": 3
-    },
-    {
-      "email": "test@mail.ru",
-      "password": "M00000000",
-      "firstName": "Bruklin",
-      "id": 4
-    },
-    {
-      "firstName": "jlkjlkjlkj",
-      "email": "crcrt@inbox.ru",
-      "password": "2309r8230948A",
-      "id": 5
-    },
-    {
-      "firstName": "Алкександр",
-      "email": "8832509238562a@gmail.com",
-      "password": "Ade80r20e",
-      "id": 6
-    },
-    {
-      "firstName": "Cfdifjasdf",
-      "email": "alexsave1992329@mail.ru",
-      "password": "afA32309u",
-      "id": 7
-    },
-    {
-      "firstName": "Алкександр",
-      "email": "crc23rrt@inbox.ru",
-      "password": "M00023000",
-      "id": 8
-    }
+      {
+          "firstName": "admin",
+          "email": "admin",
+          "password": "admin",
+          "id": 1,
+          "lastName": "admin",
+          "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg"
+      },
+      {
+          "firstName": "Ruslan",
+          "email": "rnagumanov57@gmail.com",
+          "password": "12345678D",
+          "id": 2,
+          "lastName": "Nagumanov",
+          "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg"
+      },
+      {
+          "firstName": "Моисей",
+          "email": "test@mail.ru",
+          "password": "M00000000",
+          "id": 3
+      },
+      {
+          "email": "test@mail.ru",
+          "password": "M00000000",
+          "firstName": "Bruklin",
+          "id": 4
+      },
+      {
+          "firstName": "jlkjlkjlkj",
+          "email": "crcrt@inbox.ru",
+          "password": "2309r8230948A",
+          "id": 5
+      },
+      {
+          "firstName": "Алкександр",
+          "email": "8832509238562a@gmail.com",
+          "password": "Ade80r20e",
+          "id": 6
+      },
+      {
+          "firstName": "Cfdifjasdf",
+          "email": "alexsave1992329@mail.ru",
+          "password": "afA32309u",
+          "id": 7
+      },
+      {
+          "firstName": "Алкександр",
+          "email": "crc23rrt@inbox.ru",
+          "password": "M00023000",
+          "id": 8
+      }
   ],
   "cards": [
     {

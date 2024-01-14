@@ -29,7 +29,7 @@ const Header = memo(() => {
     const createLesson = async () => {
         const currentDate = format(new Date(), 'dd-MM-yyyy HH:mm');
 
-        const lessons = (await axios.get('http://localhost:3001/lessons')).data;
+        const lessons = (await axios.get('lessons')).data;
 
         const payload = {
             userId: localStorage.getItem('userId'),
@@ -38,7 +38,7 @@ const Header = memo(() => {
             moduleId: calculateModuleNumber(lessons.length),
         };
 
-        axios.post('http://localhost:3001/lessons', payload);
+        axios.post('lessons', payload);
     };
 
     return (

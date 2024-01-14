@@ -28,19 +28,19 @@ export const { setUser } = userSlice.actions;
 export default userSlice.reducer;
 
 export const get = createAsyncThunk('user/get', async (): Promise<IUser[] | undefined> => {
-    const user = (await axios.get('http://localhost:3001/user')).data;
+    const user = (await axios.get('user')).data;
 
     return user;
 });
 
 export const getById = createAsyncThunk('user/getById', async (cardId: number): Promise<IUser[] | undefined> => {
-    const user = (await axios.get(`http://localhost:3001/user/${cardId}`)).data;
+    const user = (await axios.get(`user/${cardId}`)).data;
 
     return user;
 });
 
 export const auth = createAsyncThunk('user/auth', async (payload: PAuth): Promise<IUser | undefined> => {
-    const user = (await axios.get(`http://localhost:3001/users?email=${payload.email}&password=${payload.password}`)).data[0];
+    const user = (await axios.get(`users?email=${payload.email}&password=${payload.password}`)).data[0];
 
     return user;
 });

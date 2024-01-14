@@ -27,7 +27,7 @@ const Profile = () => {
     };
 
     const handleSubmit = async (event: FormEvent) => {
-        await axios.put(`http://localhost:3001/users/${formValues.id}`, formValues);
+        await axios.put(`users/${formValues.id}`, formValues);
     };
 
     const fetchUser = async () => {

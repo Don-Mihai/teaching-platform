@@ -33,7 +33,7 @@ const Lessons = () => {
 
     const onRemoveLesson = async (id: number) => {
         try {
-            await axios.delete(`http://localhost:3001/lessons/${id}`);
+            await axios.delete(`lessons/${id}`);
             dispatch(getLessons());
         } catch (error) {
             console.error('Error removing lesson:', error);

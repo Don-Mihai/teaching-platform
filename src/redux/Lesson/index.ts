@@ -31,7 +31,7 @@ export const {} = lessonSlice.actions;
 export default lessonSlice.reducer;
 
 export const getLessons = createAsyncThunk('lesson/get', async (): Promise<ILesson[] | undefined> => {
-    const lessons = (await axios.get('http://localhost:3001/lessons')).data;
+    const lessons = (await axios.get('lessons')).data;
 
     return lessons;
 });

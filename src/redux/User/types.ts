@@ -14,6 +14,7 @@ export interface IUser {
     email: string;
     password: string;
     role: ROLES;
+    groupId: string | number;
     firstName?: string;
     lastName?: string;
     url?: string;

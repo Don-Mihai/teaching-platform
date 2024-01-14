@@ -13,33 +13,41 @@ import axios from 'axios';
 import { format } from 'date-fns';
 import { calculateModuleNumber } from '../../utils/utils';
 import BookIcon from '@mui/icons-material/Book';
+import Diversity3Icon from '@mui/icons-material/Diversity3';
+import { RootState } from '../../redux/store';
+import { useSelector } from 'react-redux';
+import { ROLES } from '../../redux/User/types';
+import { PLesson } from '../../redux/Lesson/types';
 
 const Header = memo(() => {
+    const user = useSelector((store: RootState) => store.user.user);
     const [isFold, setIsFold] = useState<boolean>(true);
     const navigate = useLocation();
     // todo: при клике на стрелку скрывать и показывать
-    // скролл
     // уменьшить аватарку при сужении
-    // текст
 
     const onFold = () => {
         setIsFold(false);
     };
 
     const createLesson = async () => {
+        //todo: вынести создание времени в редакс, а также зарпос создания времени тоже вынести в редакс
         const currentDate = format(new Date(), 'dd-MM-yyyy HH:mm');
 
         const lessons = (await axios.get('lessons')).data;
 
-        const payload = {
-            userId: localStorage.getItem('userId'),
+        const payload: PLesson = {
+            teacherId: user.id,
             createDate: currentDate,
             title: currentDate,
             moduleId: calculateModuleNumber(lessons.length),
+            groupId: user.groupId,
         };
 
         axios.post('lessons', payload);
     };
+
+    const joinLesson = () => {};
 
     return (
         <header onMouseEnter={onFold} className={`header-component ${isFold ? '' : 'header-component--active'}`}>
@@ -102,9 +110,16 @@ const Header = memo(() => {
                     </Button>
                 </Link>
                 {/* <a href="https://jazz.sber.ru/wd7a9d?psw=OBgRDB8LDgVeCBYaQB8ZFlECCw" target='_blank'> */}
-                <Button fullWidth variant="contained" onClick={createLesson} className="header-component__button" startIcon={<AddIcon />}>
-                    {!isFold && 'Запустить урок'}
-                </Button>
+                {user.role === ROLES.STUDENT ? (
+                    <Button fullWidth variant="contained" onClick={joinLesson} className="header-component__button" startIcon={<Diversity3Icon />}>
+                        {!isFold && 'Присодениться к уроку'}
+                    </Button>
+                ) : (
+                    <Button fullWidth variant="contained" onClick={createLesson} className="header-component__button" startIcon={<AddIcon />}>
+                        {!isFold && 'Запустить урок'}
+                    </Button>
+                )}
+
                 {/* </a> */}
             </nav>
         </header>

@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export interface IGroup {
-    teacher: number;
+    teacherId: number;
     students: number[];
     name: string;
 }

@@ -6,7 +6,8 @@
           "password": "admin",
           "id": 1,
           "lastName": "admin",
-          "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg"
+          "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+          "role": "ADMIN"
       },
       {
           "firstName": "Ruslan",
@@ -14,43 +15,50 @@
           "password": "12345678D",
           "id": 2,
           "lastName": "Nagumanov",
-          "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg"
+          "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+          "role": "TEACHER"
       },
       {
           "firstName": "Моисей",
           "email": "test@mail.ru",
           "password": "M00000000",
-          "id": 3
+          "id": 3,
+          "role": "STUDENT"
       },
       {
           "email": "test@mail.ru",
           "password": "M00000000",
           "firstName": "Bruklin",
-          "id": 4
+          "id": 4,
+          "role": "STUDENT"
       },
       {
           "firstName": "jlkjlkjlkj",
           "email": "crcrt@inbox.ru",
           "password": "2309r8230948A",
-          "id": 5
+          "id": 5,
+          "role": "STUDENT"
       },
       {
           "firstName": "Алкександр",
           "email": "8832509238562a@gmail.com",
           "password": "Ade80r20e",
-          "id": 6
+          "id": 6,
+          "role": "STUDENT"
       },
       {
           "firstName": "Cfdifjasdf",
           "email": "alexsave1992329@mail.ru",
           "password": "afA32309u",
-          "id": 7
+          "id": 7,
+          "role": "STUDENT"
       },
       {
           "firstName": "Алкександр",
           "email": "crc23rrt@inbox.ru",
           "password": "M00023000",
-          "id": 8
+          "id": 8,
+          "role": "STUDENT"
       }
   ],
   "cards": [

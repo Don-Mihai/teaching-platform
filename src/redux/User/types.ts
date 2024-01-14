@@ -1,8 +1,22 @@
 export interface UserState {
     user: IUser;
+    users: IUser[];
+    listeners: IUser[];
+}
+
+export enum ROLES {
+    ADMIN = 'ADMIN',
+    TEACHER = 'TEACHER',
+    STUDENT = 'STUDENT',
 }
 export interface IUser {
     id: number;
+    email: string;
+    password: string;
+    role: ROLES;
+    firstName?: string;
+    lastName?: string;
+    url?: string;
 }
 
 export interface PAuth {

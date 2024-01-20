@@ -5,45 +5,30 @@
     &__content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         height: 100vh;
         width: 100%;
+		padding: 8px;
     }
 
-    &__sub-cont {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+	&__user-data {
+		border-radius: 8px;
+		background-color: #2c2e31;
+	}
 
-    &__title-cont {
-        display: flex;
-        justify-content: center;
-    }
-    &__title-text {
-        padding: 5px;
-        font-weight: 500;
-    }
-    &__main-cont {
-        width: 90vh;
-    }
+	&__left {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
 
-    &__label-file-drop {
-        display: flex;
-        align-items: center;
-    }
-    &__avatar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    &__avatar-label {
-        margin-bottom: 10px;
-        font-size: 14px;
-        color: rgb(173, 172, 172);
-    }
-    &__avatar-label-new {
-        margin-bottom: 20px;
-    }
+	& &__avatar {
+		width: 100px;
+		height: 100px;
+	}
+
+	&__avatar-container {
+		
+	}
+
+
 }

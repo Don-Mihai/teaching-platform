@@ -15,6 +15,11 @@
         display: flex;
     }
 
+    &__inProgress {
+        color: blue;
+    }
 
-
+    &__complete {
+        color: green;
+    }
 }

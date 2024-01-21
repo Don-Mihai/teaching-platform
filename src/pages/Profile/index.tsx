@@ -19,7 +19,9 @@ const Profile = () => {
             <div className="profile-page__content">
                 <UserData user={user} />
                 <div className='tasks'>
-                    <Tasks title={tasks} children={`${todo}/${inProgress}/${complete}`} />
+                    <Tasks title={tasks} >
+                        <span className='profile-page__todo'>{todo}</span>/<span className='profile-page__inProgress'>{inProgress}</span>/<span className='profile-page__complete'>{complete}</span>
+                    </Tasks>
                 </div>
             </div>
 

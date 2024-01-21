@@ -5,45 +5,57 @@
     &__content {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
         height: 100vh;
         width: 100%;
+        padding: 8px;
+        color: #d1d0c5;
     }
 
-    &__sub-cont {
+    &__user-data {
+        display: flex;
+        border-radius: 8px;
+        background-color: #2c2e31;
+        padding: 15px;
+    }
+
+    &__left {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        gap: 15px;
+        width: 300px;
+        padding-right: 15px;
+        border-right: 10px solid #323437;
     }
 
-    &__title-cont {
+    &__right {
         display: flex;
-        justify-content: center;
-    }
-    &__title-text {
-        padding: 5px;
-        font-weight: 500;
-    }
-    &__main-cont {
-        width: 90vh;
+        flex-wrap: wrap;
+        gap: 15px;
+
     }
 
-    &__label-file-drop {
-        display: flex;
-        align-items: center;
+    & &__avatar {
+        width: 80px;
+        height: 80px;
     }
+
     &__avatar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        &-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        &-title {
+            font-size: 30px;
+            font-weight: normal;
+        }
+
+        &__date {
+            font-size: 12px;
+            color: #646669;
+            font-weight: normal;
+        }
     }
-    &__avatar-label {
-        margin-bottom: 10px;
-        font-size: 14px;
-        color: rgb(173, 172, 172);
-    }
-    &__avatar-label-new {
-        margin-bottom: 20px;
-    }
+
 }

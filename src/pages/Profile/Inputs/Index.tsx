@@ -11,13 +11,12 @@ interface AddUserProps {
 
 const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) => {
     return (
-        <div className="profile-component">
+        <div className="right-component">
             <div className="profile-component__input-email">
                 <TextField
                     name="email"
                     type="text"
                     value={formValues?.[PROFILE_KEYS.EMAIL]}
-                    fullWidth
                     sx={{ border: 'none' }}
                     onChange={handleChange}
                     variant="outlined"
@@ -30,7 +29,6 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                     type="text"
                     value={formValues?.[PROFILE_KEYS.PASSWORD]}
                     onChange={handleChange}
-                    fullWidth
                     sx={{ border: 'none' }}
                     variant="outlined"
                     label={'Password'}
@@ -42,7 +40,6 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                     type="text"
                     value={formValues?.[PROFILE_KEYS.FIRST_NAME]}
                     onChange={handleChange}
-                    fullWidth
                     label={'First Name'}
                 ></TextField>
             </div>
@@ -52,7 +49,6 @@ const Inputs: FC<AddUserProps> = ({ formValues, handleChange, handleSubmit }) =>
                     type="text"
                     value={formValues?.[PROFILE_KEYS.LAST_NAME]}
                     onChange={handleChange}
-                    fullWidth
                     label={'Last Name'}
                 ></TextField>
             </div>

@@ -26,7 +26,7 @@ export const lessonSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {} = lessonSlice.actions;
+export const { } = lessonSlice.actions;
 
 export default lessonSlice.reducer;
 
@@ -35,3 +35,5 @@ export const getLessons = createAsyncThunk('lesson/get', async (): Promise<ILess
 
     return lessons;
 });
+
+

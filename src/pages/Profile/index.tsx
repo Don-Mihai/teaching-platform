@@ -11,11 +11,12 @@ import { Avatar } from '@mui/material';
 import FileDrop from '../../components/FileDrop';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import Level from '../../components/Level';
 
 const Profile = () => {
     const [formValues, setFormValues] = useState<Partial<IProfile>>(initState);
     const lessons = useSelector((store: RootState) => store.lesson.lessons);
-	const user = useSelector((store: RootState) => store.user.user);
+    const user = useSelector((store: RootState) => store.user.user);
 
     useEffect(() => {
         fetchUser();
@@ -38,23 +39,28 @@ const Profile = () => {
         <div className="profile-page">
             <Header />
             <div className="profile-page__content">
-                <div className="profile-page__sub-cont">
-                    <div className="profile-page__title-cont">
-                        <h3 className="profile-page__title-text">Settings profile</h3>
-                    </div>
-                    <div className="profile-page__main-cont">
-                        <div className="profile-page__avatar">
-                            <FileDrop onSendFiles={() => {}}>
-                                <Avatar src={`${formValues?.[PROFILE_KEYS.URL]}`} sx={{ bgcolor: pink[300], width: 100, height: 100, margin: '20px' }}>
+                <div className="profile-page__user-data">
+                    <div className="profile-page__left">
+                        <div className="profile-page__avatar-container">
+                            <FileDrop onSendFiles={() => { }}>
+                                <Avatar className='profile-page__avatar' src={formValues?.[PROFILE_KEYS.URL]}>
                                     {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
                                 </Avatar>
                             </FileDrop>
+                            <div className="profile-page__title-wrap">
+                                <h3 className="profile-page__avatar-title">{user.firstName}</h3>
+                                <h4 className="profile-page__avatar-date">Join 12.13.2024</h4>
+                            </div>
                         </div>
+                        <Level level={1} xp={250} maxXp={500} />
+                    </div>
+                    <div className="profile-page__right">
                         <Inputs handleChange={handleChange} handleSubmit={handleSubmit} formValues={formValues} />
                     </div>
                 </div>
+
             </div>
-        </div>
+        </div >
     );
 };
 

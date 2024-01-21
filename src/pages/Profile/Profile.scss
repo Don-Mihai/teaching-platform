@@ -7,10 +7,13 @@
         flex-direction: column;
         height: 100vh;
         width: 100%;
-		padding: 8px;
-		color: #d1d0c5;
+        padding: 8px;
+        color: #d1d0c5;
     }
 
-	
-
+    &__container-modules {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 }

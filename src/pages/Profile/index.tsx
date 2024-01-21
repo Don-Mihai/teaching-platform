@@ -22,6 +22,7 @@ const Profile = () => {
                     <ItemStatistic title={'Статистика занятий'} children={`Уроков ${quant} из ${maxQuant}`} />
                 </div>
                 <ItemStatistic title={'Очные посещения'} children={`${visits}, ${visits/numberOfVisits*100}%`} />
+                <ItemStatistic title='CodeWars'><img src="https://www.codewars.com/users/SashaSavelev/badges/large" alt="" /></ItemStatistic>
             </div>
         </div>
     );

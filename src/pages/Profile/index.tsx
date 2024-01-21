@@ -6,8 +6,9 @@ import UserData from './UserData';
 import ItemStatistic from './ItemStatistic';
 
 const Profile = () => {
-    const user = useSelector((store: RootState) => store.user.user);
-
+	const user = useSelector((store: RootState) => store.user.user);
+    const visits = 6
+    const numberOfVisits = 10
     const quant = '4';
     const maxQuant = '54';
     const date = '01.01.2025';
@@ -20,6 +21,7 @@ const Profile = () => {
                     <ItemStatistic title={'Предполагаемая дата окончания курса'} children={date} />
                     <ItemStatistic title={'Статистика занятий'} children={`Уроков ${quant} из ${maxQuant}`} />
                 </div>
+                <ItemStatistic title={'Очные посещения'} children={`${visits}, ${visits/numberOfVisits*100}%`} />
             </div>
         </div>
     );

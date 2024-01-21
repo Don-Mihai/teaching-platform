@@ -16,7 +16,7 @@ const Profile = () => {
             <Header />
             <div className="profile-page__content">
                 <UserData user={user} />
-                <FtfStatistic visits={visits} number={numberOfVisits} type={type}/>
+                <FtfStatistic type={type}>{visits}, {visits/numberOfVisits*100}%</FtfStatistic>
             </div>
         </div>
     );

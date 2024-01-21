@@ -1,0 +1,9 @@
+.component-level {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+
+	&__progress {
+		width: 100%;
+	}
+}

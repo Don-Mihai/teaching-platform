@@ -8,27 +8,9 @@
         height: 100vh;
         width: 100%;
 		padding: 8px;
+		color: #d1d0c5;
     }
 
-	&__user-data {
-		border-radius: 8px;
-		background-color: #2c2e31;
-	}
-
-	&__left {
-		display: flex;
-		flex-direction: column;
-		gap: 15px;
-	}
-
-	& &__avatar {
-		width: 100px;
-		height: 100px;
-	}
-
-	&__avatar-container {
-		
-	}
-
+	
 
 }

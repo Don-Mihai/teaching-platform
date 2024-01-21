@@ -9,14 +9,14 @@ const Profile = () => {
 	const user = useSelector((store: RootState) => store.user.user);
     const visits = 6
     const numberOfVisits = 10
-
+    const type = 'Очные посещения'
 
     return (
         <div className="profile-page">
             <Header />
             <div className="profile-page__content">
                 <UserData user={user} />
-                <FtfStatistic visits={visits} number={numberOfVisits}/>
+                <FtfStatistic visits={visits} number={numberOfVisits} type={type}/>
             </div>
         </div>
     );

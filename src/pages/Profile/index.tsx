@@ -3,20 +3,25 @@ import Header from '../../components/Header';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import UserData from './UserData';
-import FtfStatistic from '../../components/Statistics';
+import ItemStatistic from './ItemStatistic';
 
 const Profile = () => {
 	const user = useSelector((store: RootState) => store.user.user);
     const visits = 6
     const numberOfVisits = 10
-    const type = 'Очные посещения'
-
+    const quant = '4';
+    const maxQuant = '54';
+    const date = '01.01.2025';
     return (
         <div className="profile-page">
             <Header />
             <div className="profile-page__content">
                 <UserData user={user} />
-                <FtfStatistic type={type}>{visits}, {visits/numberOfVisits*100}%</FtfStatistic>
+                <div className="profile-page__container-modules">
+                    <ItemStatistic title={'Предполагаемая дата окончания курса'} children={date} />
+                    <ItemStatistic title={'Статистика занятий'} children={`Уроков ${quant} из ${maxQuant}`} />
+                </div>
+                <ItemStatistic title={'Очные посещения'} children={`${visits}, ${visits/numberOfVisits*100}%`} />
             </div>
         </div>
     );

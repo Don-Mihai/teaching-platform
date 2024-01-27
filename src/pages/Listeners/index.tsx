@@ -8,7 +8,6 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { MenuItem } from '@mui/material';
 
-
 const Listeners = () => {
     const listeners = useSelector((store: RootState) => store.user.listeners);
     const dispatch = useDispatch<AppDispatch>();
@@ -16,7 +15,7 @@ const Listeners = () => {
     const [item, setItem] = useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
-      setItem(event.target.value);
+        setItem(event.target.value);
     };
 
     useEffect(() => {
@@ -33,19 +32,11 @@ const Listeners = () => {
             <div className="listeners-page__content">
                 <div>Your Listeners</div>
 
-                <Select
-          labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
-          value={item}
-          onChange={handleChange}
-          label="Sort"
-        >
-            
-{listeners.map(item => {
-                    return <MenuItem value={item.firstName}>{item.firstName}</MenuItem>;
-                })}
-        </Select>
-                
+                <Select labelId="demo-simple-select-filled-label" id="demo-simple-select-filled" value={item} onChange={handleChange} label="Sort">
+                    {listeners.map(item => {
+                        return <MenuItem value={item.firstName}>{item.firstName}</MenuItem>;
+                    })}
+                </Select>
             </div>
         </div>
     );

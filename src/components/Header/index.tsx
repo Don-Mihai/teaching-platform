@@ -44,6 +44,7 @@ const Header = memo(() => {
         <header onMouseEnter={onFold} className={`header-component ${isFold ? '' : 'header-component--active'}`}>
             <Button
                 fullWidth
+                sx={{ color: '#e64a19' }}
                 className='arrowBackIcon'
                 onClick={closeHeader}
                 startIcon={<ArrowBackIcon />}

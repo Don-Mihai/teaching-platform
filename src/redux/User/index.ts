@@ -40,7 +40,7 @@ export const get = createAsyncThunk('user/get', async (): Promise<IUser[] | unde
 });
 
 export const getListeners = createAsyncThunk('user/getListeners', async (): Promise<IUser[] | undefined> => {
-    const user = (await axios.get(`http://localhost:3001/users?role=${ROLES.STUDENT}`)).data;
+    const user = (await axios.get(`users?role=${ROLES.STUDENT}`)).data;
 
     return user;
 });

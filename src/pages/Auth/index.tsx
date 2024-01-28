@@ -6,6 +6,7 @@ import { Button, Link } from '@mui/material';
 import SubLink from './SubLink';
 import Register from './Register';
 import Login from './Login';
+import GoogleAuth from '../../components/GoogleAuth';
 
 const Auth = () => {
     const [formValues, setFormValues] = useState<Partial<PRegister>>(initValues);
@@ -25,6 +26,7 @@ const Auth = () => {
 
     return (
         <div className="auth">
+            <GoogleAuth />
             {mode === AUTH_MODE.REGISTER ? <Register formValues={formValues} onChange={onChange} /> : <Login formValues={formValues} onChange={onChange} />}
             {mode === AUTH_MODE.REGISTER ? (
                 <SubLink text="Alredy signed up?" onClick={onLoginLink} linkText="Sign in" />

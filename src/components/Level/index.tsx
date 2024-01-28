@@ -2,10 +2,11 @@ import LinearProgress from '@mui/material/LinearProgress';
 import './Level.scss'
 
 interface Props {
-	level: number;
-	xp: number;
-	maxXp: number;
+    level: number;
+    xp: number;
+    maxXp: number;
 }
+
 const Level = ({ level, xp, maxXp }: Props) => {
     return (
         <div className="component-level">
@@ -15,5 +16,5 @@ const Level = ({ level, xp, maxXp }: Props) => {
         </div>
     );
 };
- 
+
 export default Level;

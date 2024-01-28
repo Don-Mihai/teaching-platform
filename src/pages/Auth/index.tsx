@@ -10,7 +10,7 @@ import GoogleAuth from '../../components/GoogleAuth';
 
 const Auth = () => {
     const [formValues, setFormValues] = useState<Partial<PRegister>>(initValues);
-    const [mode, setMode] = useState<AUTH_MODE>(AUTH_MODE.REGISTER);
+    const [mode, setMode] = useState<AUTH_MODE>(AUTH_MODE.LOGIN);
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormValues({ ...formValues, [event.target.name]: event.target.value });

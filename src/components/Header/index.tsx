@@ -10,47 +10,47 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { memo, useState } from 'react';
 import axios from 'axios';
-import { format } from 'date-fns';
-import { calculateModuleNumber } from '../../utils/utils';
 import BookIcon from '@mui/icons-material/Book';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
-import { RootState } from '../../redux/store';
-import { useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../redux/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { ROLES } from '../../redux/User/types';
-import { PLesson } from '../../redux/Lesson/types';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { createLesson } from '../../redux/Lesson';
 
 const Header = memo(() => {
     const user = useSelector((store: RootState) => store.user.user);
     const [isFold, setIsFold] = useState<boolean>(true);
+    const [isClose, setIsClose] = useState<boolean>(false)
     const navigate = useLocation();
-    // todo: при клике на стрелку скрывать и показывать
-    // уменьшить аватарку при сужении
+    const dispatch = useDispatch<AppDispatch>();
+
 
     const onFold = () => {
         setIsFold(false);
     };
 
-    const createLesson = async () => {
-        //todo: вынести создание времени в редакс, а также зарпос создания времени тоже вынести в редакс
-        const currentDate = format(new Date(), 'dd-MM-yyyy HH:mm');
+    const closeHeader = () => {
+        setIsFold(true)
+    }
 
-        const lessons = (await axios.get('lessons')).data;
-
-        const payload: PLesson = {
-            teacherId: user.id,
-            createDate: currentDate,
-            title: currentDate,
-            moduleId: calculateModuleNumber(lessons.length),
-            groupId: user.groupId,
-        };
-
-        axios.post('lessons', payload);
+    const createLes = async () => {
+        dispatch(createLesson(user))
     };
 
-    const joinLesson = () => {};
+    const joinLesson = () => { };
 
     return (
         <header onMouseEnter={onFold} className={`header-component ${isFold ? '' : 'header-component--active'}`}>
+            <Button
+                fullWidth
+                sx={{ color: '#e64a19' }}
+                className='arrowBackIcon'
+                onClick={closeHeader}
+                startIcon={<ArrowBackIcon />}
+            >
+            </Button>
+
             <Link className="avatar" to={PAGE_ROUTES.Profile}>
                 <Avatar sx={{ width: 70, height: 70, margin: '20px', bgcolor: 'darkkhaki' }}>MP</Avatar>
             </Link>
@@ -115,14 +115,12 @@ const Header = memo(() => {
                         {!isFold && 'Присодениться к уроку'}
                     </Button>
                 ) : (
-                    <Button fullWidth variant="contained" onClick={createLesson} className="header-component__button" startIcon={<AddIcon />}>
+                    <Button fullWidth variant="contained" onClick={createLes} className="header-component__button" startIcon={<AddIcon />}>
                         {!isFold && 'Запустить урок'}
                     </Button>
                 )}
-
-                {/* </a> */}
             </nav>
-        </header>
+        </header >
     );
 });
 

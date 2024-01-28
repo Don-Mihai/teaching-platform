@@ -6,6 +6,7 @@ interface Props {
     xp: number;
     maxXp: number;
 }
+
 const Level = ({ level, xp, maxXp }: Props) => {
     return (
         <div className="component-level">

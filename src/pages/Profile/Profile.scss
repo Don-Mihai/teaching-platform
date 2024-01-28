@@ -22,4 +22,10 @@
     &__complete {
         color: #9ACD32;
     }
+      
+    &__container-modules {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 }

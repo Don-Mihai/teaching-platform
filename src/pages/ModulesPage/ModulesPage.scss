@@ -1,51 +1,50 @@
 .modules-page {
     display: flex;
     height: 100%;
+    background-color: #363434;
 
     &__content {
         display: flex;
-
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     &__modules {
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: center;
         flex-wrap: wrap;
-
-        width: 850px;
-
+        max-width: 730px;
+        width: 100%;
     }
 
     &__module {
         display: flex;
         flex-direction: column;
-        width: 250px;
-        box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .5);
+        border-radius: 8px;
+        max-width: 100%;
+        box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
         margin: 10px;
-        align-items: start;
         background-color: rgb(61, 61, 61);
-
     }
 
     &__img {
-        width: 100%;
+        width: 340px;
+        max-width: 100%;
+        height: 200px;
+        max-height: 100%;
+
+        border-top-right-radius: 4px;
+        border-top-left-radius: 4px;
     }
 
     &__title {
         font-size: 20px;
         margin-top: 10px;
-        padding: 5px;
+        padding: 10px;
         color: #fff;
-    }
-
-    &__subtitle {
-        margin-top: 5px;
-        margin-bottom: 20px;
-        font-size: 15px;
-        color: rgb(205, 205, 205);
-        padding: 5px;
-
     }
 
     &__card-footer {
@@ -55,6 +54,5 @@
         align-items: center;
         gap: 20px;
         padding: 5px;
-
     }
 }

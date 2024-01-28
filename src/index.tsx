@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import Lessons from './pages/Lessons';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const router = createBrowserRouter([
     {
@@ -37,6 +38,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <Provider store={store}>
-        <RouterProvider router={router} />
+        <GoogleOAuthProvider clientId="515923033935-eaohjt4hlr1vd1u59rceqlj613v5un39.apps.googleusercontent.com">
+            <RouterProvider router={router} />
+        </GoogleOAuthProvider>
     </Provider>
 );

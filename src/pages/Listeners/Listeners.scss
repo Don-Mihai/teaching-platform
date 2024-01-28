@@ -18,6 +18,12 @@
         }
     }
 
+    & &__avatar {
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+    }
+
     &__lists {
         display: flex;
         flex-direction: column;

@@ -1,5 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ILesson, LessonState, PLesson } from './types';
 import { format } from 'date-fns';
@@ -12,14 +11,8 @@ const initialState: LessonState = {
 export const lessonSlice = createSlice({
     name: 'lesson',
     initialState,
-    reducers: {
-        // increment: state => {
-        //     state.value = 5;
-        // },
-        // incrementByAmount: (state, action: PayloadAction<number>) => {
-        //     state.value += action.payload;
-        // },
-    },
+    reducers: {},
+
     extraReducers(builder) {
         builder.addCase(getLessons.fulfilled, (state, action) => {
             state.lessons = action.payload || [];
@@ -27,18 +20,14 @@ export const lessonSlice = createSlice({
     },
 });
 
-// Action creators are generated for each case reducer function
-export const { } = lessonSlice.actions;
-
 export default lessonSlice.reducer;
 
-export const getLessons = createAsyncThunk('lesson/get', async (): Promise<ILesson[] | undefined> => {
+export const getLessons = createAsyncThunk('lesson/get', async (): Promise<ILesson[]> => {
     const lessons = (await axios.get('lessons')).data;
-
     return lessons;
 });
 
-export const createLesson = createAsyncThunk('lesson/create', async (user: any): Promise<undefined> => {
+export const createLesson = createAsyncThunk('lesson/create', async (user: any): Promise<ILesson> => {
     const currentDate = format(new Date(), 'dd-MM-yyyy HH:mm');
 
     const lessons = (await axios.get('lessons')).data;
@@ -50,7 +39,11 @@ export const createLesson = createAsyncThunk('lesson/create', async (user: any):
         moduleId: calculateModuleNumber(lessons.length),
         groupId: user.groupId,
     };
-    axios.post('lessons', payload);
+    const response = await axios.post('lessons', payload);
+    return response.data;
 });
 
-
+export const removeLesson = createAsyncThunk('lessons/removeLesson', async (id: number) => {
+    await axios.delete(`lessons/${id}`);
+    return id;
+});

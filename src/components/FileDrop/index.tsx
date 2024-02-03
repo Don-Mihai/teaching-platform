@@ -58,7 +58,7 @@ const FileDrop = ({ children, borderRadius, onSendFiles }: Props) => {
             {dragActive && (
                 <div
                     className={'component-file-drop__drag-element'}
-                    style={{ borderRadius: borderRadius ? borderRadius : '50%' }}
+                    style={{ borderRadius: borderRadius ? borderRadius : '100%' }}
                     onClick={handleClick}
                     onMouseLeave={() => setDragActive(false)}
                     onDragLeave={handleDrag}

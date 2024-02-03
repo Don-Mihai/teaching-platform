@@ -3,11 +3,9 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import './Lessons.scss';
 import Lesson from './Lesson';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLessons } from '../../redux/Lesson';
 import { AppDispatch, RootState } from '../../redux/store';
-
 
 export interface ILesson {
     id: number;
@@ -31,15 +29,6 @@ const Lessons = () => {
         setId(0);
     };
 
-    const onRemoveLesson = async (id: number) => {
-        try {
-            await axios.delete(`lessons/${id}`);
-            dispatch(getLessons());
-        } catch (error) {
-            console.error('Error removing lesson:', error);
-        }
-    };
-
     return (
         <div className="lessons-page">
             <Header />
@@ -50,9 +39,6 @@ const Lessons = () => {
                             <div key={item.id} onClick={() => onLessonClick(item.id)} className="lesson">
                                 <h3>{item?.title}</h3>
                             </div>
-                            <button onClick={() => onRemoveLesson(item.id)}>
-                                <RemoveCircleOutlineIcon />
-                            </button>
                         </div>
                     );
                 })}

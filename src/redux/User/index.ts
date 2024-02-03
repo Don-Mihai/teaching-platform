@@ -17,6 +17,9 @@ export const userSlice = createSlice({
             localStorage.setItem('userId', String(action.payload.id));
             state.user = action.payload;
         },
+        addToken: (state, action: PayloadAction<string>) => {
+            state.user.token = action.payload;
+        },
     },
     extraReducers(builder) {
         builder
@@ -29,7 +32,7 @@ export const userSlice = createSlice({
     },
 });
 
-export const { setUser } = userSlice.actions;
+export const { setUser, addToken } = userSlice.actions;
 
 export default userSlice.reducer;
 

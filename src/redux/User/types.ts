@@ -11,6 +11,7 @@ export enum ROLES {
 }
 export interface IUser {
     id: number;
+    token?: string;
     email: string;
     password: string;
     role: ROLES;

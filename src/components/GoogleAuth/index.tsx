@@ -1,12 +1,21 @@
 import { GoogleLogin } from '@react-oauth/google';
+import { addToken } from '../../redux/User';
+import { useDispatch } from 'react-redux';
+import { jwtDecode } from 'jwt-decode';
 
 const GoogleAuth = () => {
+    const dispatch = useDispatch();
     const handleSuccess = async (credentialResponse: any) => {
-        const token = credentialResponse.credential;
+        const data = credentialResponse.credential;
+        const user = jwtDecode(data);
+
+        console.log(user);
+
+        // dispatch(addToken(token));
 
         const response = await fetch(`https://www.googleapis.com/oauth2/v3/userinfo`, {
             headers: {
-                Authorization: `Bearer ${token}`,
+                // Authorization: `Bearer ${token}`,
                 Accept: 'application/json',
             },
         });

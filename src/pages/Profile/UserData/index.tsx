@@ -30,11 +30,47 @@ const UserData = ({ user }: Props) => {
     const handleSubmit = async (event: FormEvent) => {
         await axios.put(`users/${formValues.id}`, formValues);
     };
+
+    // Этот код - лишь иллюстрация. Вам нужно будет адаптировать его под ваш конкретный случай.
+    const uploadVideo = async (videoBlob: Blob) => {
+        const url = 'https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status';
+
+        const formData = new FormData();
+        formData.append('video', videoBlob); // Замените videoBlob на ваш файл
+        // Добавьте необходимые метаданные
+        formData.append(
+            'snippet',
+            JSON.stringify({
+                title: 'Your Video Title',
+                description: 'Your Video Description',
+                tags: ['tag1', 'tag2'],
+                categoryId: '22', // Пример категории, укажите подходящую
+            })
+        );
+        formData.append(
+            'status',
+            JSON.stringify({
+                privacyStatus: 'public', // или 'private', 'unlisted'
+            })
+        );
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${user.token}`,
+                // Для загрузки файлов заголовок 'Content-Type' указывать не нужно, так как используется FormData
+            },
+            body: formData,
+        });
+
+        return response.json(); // Результат загрузки
+    };
+
     return (
         <div className="user-data">
             <div className="user-data__left">
                 <div className="user-data__avatar-container">
-                    <FileDrop onSendFiles={() => {}}>
+                    <FileDrop onSendFiles={uploadVideo}>
                         <Avatar className="user-data__avatar" src={formValues?.[PROFILE_KEYS.URL]}>
                             {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
                         </Avatar>

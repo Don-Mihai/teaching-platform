@@ -33,18 +33,13 @@ const UserData = ({ user }: Props) => {
 
     // Этот код - лишь иллюстрация. Вам нужно будет адаптировать его под ваш конкретный случай.
     const uploadVideo = async (videoBlob: Blob) => {
-        const url = 'https://www.googleapis.com/upload/youtube/v3/videos?part=snippet,status';
-
+        const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,status&key=AIzaSyCSeIm1ppEAwviPLlfVIT1MtwTOfpnB6To`;
         const formData = new FormData();
-        formData.append('video', videoBlob); // Замените videoBlob на ваш файл
-        // Добавьте необходимые метаданные
+        formData.append('media_body', videoBlob);
         formData.append(
             'snippet',
             JSON.stringify({
-                title: 'Your Video Title',
-                description: 'Your Video Description',
-                tags: ['tag1', 'tag2'],
-                categoryId: '22', // Пример категории, укажите подходящую
+                title: 'title',
             })
         );
         formData.append(
@@ -54,16 +49,13 @@ const UserData = ({ user }: Props) => {
             })
         );
 
-        const response = await fetch(url, {
-            method: 'POST',
+        const response = await axios.post(url, formData, {
             headers: {
-                Authorization: `Bearer ${user.token}`,
-                // Для загрузки файлов заголовок 'Content-Type' указывать не нужно, так как используется FormData
+                Authorization: `Bearer ya29.a0AfB_byAUdk3CymTycC4hnvPDUgAzXYUf2XXl-LDg1QBo-DrB2bMsxihiYfysTn9HnvIurnjN_VaiFqHmEADc7LbjA1RP8ArZ_Zii7_hZJ1Ymv5m8s34kY-l-8C3Cv8X21LYlU1JHBeiCJAW8uHOIQ7-PM9bzduokq4UaCgYKAbYSARESFQHGX2MiEkKFJf0TFX6rx8HdKnfGDA0170`,
             },
-            body: formData,
         });
 
-        return response.json(); // Результат загрузки
+        return response;
     };
 
     return (

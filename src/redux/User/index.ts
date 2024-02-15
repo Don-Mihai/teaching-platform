@@ -5,6 +5,7 @@ import { UserState, IUser, PAuth, ROLES } from './types';
 
 const initialState: UserState = {
     user: {} as IUser,
+    token: '',
     users: [],
     listeners: [],
 };
@@ -18,7 +19,7 @@ export const userSlice = createSlice({
             state.user = action.payload;
         },
         addToken: (state, action: PayloadAction<string>) => {
-            state.user.token = action.payload;
+            state.token = action.payload;
         },
     },
     extraReducers(builder) {

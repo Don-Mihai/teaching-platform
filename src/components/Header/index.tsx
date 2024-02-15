@@ -42,14 +42,7 @@ const Header = memo(() => {
 
     return (
         <header onMouseEnter={onFold} className={`header-component ${isFold ? '' : 'header-component--active'}`}>
-            <Button
-                fullWidth
-                sx={{ color: '#e64a19' }}
-                className='arrowBackIcon'
-                onClick={closeHeader}
-                startIcon={<ArrowBackIcon />}
-            >
-            </Button>
+            <Button fullWidth sx={{ color: '#e64a19' }} className="arrowBackIcon" onClick={closeHeader} startIcon={<ArrowBackIcon />}></Button>
 
             <Link className="avatar" to={PAGE_ROUTES.Profile}>
                 <Avatar sx={{ width: 70, height: 70, margin: '20px', bgcolor: 'darkkhaki' }}>MP</Avatar>
@@ -109,18 +102,20 @@ const Header = memo(() => {
                         {!isFold && 'Уроки'}
                     </Button>
                 </Link>
-                {/* <a href="https://jazz.sber.ru/wd7a9d?psw=OBgRDB8LDgVeCBYaQB8ZFlECCw" target='_blank'> */}
+
                 {user.role === ROLES.STUDENT ? (
                     <Button fullWidth variant="contained" onClick={joinLesson} className="header-component__button" startIcon={<Diversity3Icon />}>
                         {!isFold && 'Присодениться к уроку'}
                     </Button>
                 ) : (
-                    <Button fullWidth variant="contained" onClick={createLes} className="header-component__button" startIcon={<AddIcon />}>
-                        {!isFold && 'Запустить урок'}
-                    </Button>
+                    <a href="https://jazz.sber.ru/wd7a9d?psw=OBgRDB8LDgVeCBYaQB8ZFlECCw" target="_blank">
+                        <Button fullWidth variant="contained" onClick={createLes} className="header-component__button" startIcon={<AddIcon />}>
+                            {!isFold && 'Запустить урок'}
+                        </Button>
+                    </a>
                 )}
             </nav>
-        </header >
+        </header>
     );
 });
 

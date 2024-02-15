@@ -1,5 +1,6 @@
 export interface UserState {
     user: IUser;
+    token?: string;
     users: IUser[];
     listeners: IUser[];
 }

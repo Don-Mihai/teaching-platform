@@ -15,6 +15,7 @@ export interface ILesson {
 const Lessons = () => {
     const [id, setId] = useState<number>(0);
     const lessons = useSelector((store: RootState) => store.lesson.lessons);
+	const token = useSelector((store: RootState) => store.user.token);
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
@@ -43,7 +44,7 @@ const Lessons = () => {
                     );
                 })}
             </div>
-            <Lesson id={id} onCloseModal={onCloseModal} title={lessons.find(item => item.id === id)?.title || ''} />
+            <Lesson id={id} onCloseModal={onCloseModal} title={lessons.find(item => item.id === id)?.title || ''} token={token} />
         </div>
     );
 };

@@ -29,3 +29,8 @@ export enum LESSON_KEYS {
 export interface LessonState {
     lessons: ILesson[];
 }
+
+export interface PUploadVideo {
+    video: Blob;
+    token: string;
+}

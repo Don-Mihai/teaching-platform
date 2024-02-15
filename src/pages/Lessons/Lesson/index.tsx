@@ -2,7 +2,7 @@ import { Button, Dialog } from '@mui/material';
 import './Lesson.scss';
 import FileDrop from '../../../components/FileDrop';
 import { useDispatch } from 'react-redux';
-import { removeLesson } from '../../../redux/Lesson';
+import { removeLesson, uploadVideo } from '../../../redux/Lesson';
 import { AppDispatch } from '../../../redux/store';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 
@@ -10,13 +10,18 @@ interface Props {
     onCloseModal: () => void;
     id: number;
     title: string;
+    token?: string;
 }
 
-const Lesson = ({ id, onCloseModal, title }: Props) => {
+const Lesson = ({ id, onCloseModal, title, token }: Props) => {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleRemoveLesson = async (lessongId: number) => {
         dispatch(removeLesson(lessongId));
+    };
+
+    const upload = (video: Blob) => {
+        dispatch(uploadVideo({ video, token: token || '' }));
     };
 
     return (
@@ -28,7 +33,7 @@ const Lesson = ({ id, onCloseModal, title }: Props) => {
                 </a>
                 <div> Название: {title}</div>
                 <div className="modal-item__video">
-                    <FileDrop onSendFiles={() => {}}>
+                    <FileDrop onSendFiles={upload}>
                         <Button fullWidth>Загрузить видео</Button>
                     </FileDrop>
                 </div>

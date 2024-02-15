@@ -71,7 +71,11 @@ const Header = memo(() => {
                     </Button>
                 </Link>
 
-                <Link to={PAGE_ROUTES.Tasks}>
+                <a
+                    href="https://indigo-handspring-216.notion.site/0a1ad088e2ab41648bd351ccb756c4cf?v=42373e6e956c481caebc87ccb122fc2b&pvs=4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <Button
                         fullWidth
                         variant={navigate.pathname === PAGE_ROUTES.Tasks ? 'contained' : undefined}
@@ -80,7 +84,7 @@ const Header = memo(() => {
                     >
                         {!isFold && 'Задания'}
                     </Button>
-                </Link>
+                </a>
 
                 <Link to={PAGE_ROUTES.Profile}>
                     <Button

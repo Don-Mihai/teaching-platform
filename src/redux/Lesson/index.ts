@@ -43,6 +43,14 @@ export const createLesson = createAsyncThunk('lesson/create', async (user: any):
     return response.data;
 });
 
+export const editLesson = createAsyncThunk('lesson/create', async (lesson: any): Promise<ILesson> => {
+    const payload: PLesson = {
+        ...lesson,
+    };
+    const response = await axios.put('lessons', payload);
+    return response.data;
+});
+
 export const removeLesson = createAsyncThunk('lessons/removeLesson', async (id: number) => {
     await axios.delete(`lessons/${id}`);
     return id;
@@ -68,7 +76,8 @@ export const uploadVideo = createAsyncThunk('lessons/removeLesson', async (ojb: 
                     description: 'Test Video Description',
                 },
                 status: {
-                    privacyStatus: 'private', // или 'public' или 'unlisted'
+                    privacyStatus: 'public', // или 'public' или 'unlisted'
+                    selfDeclaredMadeForKids: false,
                 },
             },
             {
@@ -78,12 +87,16 @@ export const uploadVideo = createAsyncThunk('lessons/removeLesson', async (ojb: 
         const uploadUrl = response.headers.location;
 
         // Загрузить файл видео
-        await axios.put(uploadUrl, ojb.video, {
+        const res = await axios.put(uploadUrl, ojb.video, {
             headers: {
                 'Content-Type': ojb.video.type,
                 'Content-Length': ojb.video.size,
             },
         });
+
+        console.log('res', response.data, res.data);
+
+        await axios.put(`lessons/${ojb.lessonId}`, { urlVideo: res.data.id });
 
         alert('Video uploaded successfully!');
     } catch (error) {

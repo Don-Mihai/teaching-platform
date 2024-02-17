@@ -6,6 +6,7 @@ export interface ILesson {
     [LESSON_KEYS.createDate]: string;
     [LESSON_KEYS.moduleId]: string | number;
     [LESSON_KEYS.groupId]: string | number;
+    urlVideo: string;
 }
 
 export interface PLesson {
@@ -33,4 +34,5 @@ export interface LessonState {
 export interface PUploadVideo {
     video: Blob;
     token: string;
+    lessonId: number | string;
 }

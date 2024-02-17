@@ -49,14 +49,17 @@ export const getListeners = createAsyncThunk('user/getListeners', async (): Prom
     return user;
 });
 
-export const getById = createAsyncThunk('user/getById', async (cardId: number): Promise<IUser[] | undefined> => {
-    const user = (await axios.get(`users/${cardId}`)).data;
+export const getById = createAsyncThunk('user/getById', async (userId?: number): Promise<IUser[] | undefined> => {
+    const id = localStorage.getItem('userId') || String(userId);
+    const user = (await axios.get(`users/${id}`)).data;
 
     return user;
 });
 
 export const auth = createAsyncThunk('user/auth', async (payload: PAuth): Promise<IUser | undefined> => {
-    const user = (await axios.get(`users?email=${payload.email}&password=${payload.password}`)).data[0];
-
-    return user;
+    try {
+        const user = (await axios.get(`users?email=${payload.email}&password=${payload.password}`)).data[0];
+        localStorage.setItem('userId', String(user.id));
+        return user;
+    } catch (error) {}
 });

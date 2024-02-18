@@ -1,6 +1,5 @@
 import './FileDrop.scss';
 import React, { useRef, useState, MutableRefObject } from 'react';
-import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 
 interface Props {
     children: any;

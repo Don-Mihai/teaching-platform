@@ -1,3 +1,11 @@
+export enum PROFILE_KEYS {
+    EMAIL = 'email',
+    PASSWORD = 'password',
+    FIRST_NAME = 'firstName',
+    LAST_NAME = 'lastName',
+    URL = 'url',
+}
+
 export interface IProfile {
     [PROFILE_KEYS.EMAIL]: string;
     [PROFILE_KEYS.PASSWORD]: string;
@@ -5,14 +13,6 @@ export interface IProfile {
     [PROFILE_KEYS.LAST_NAME]: string;
     [PROFILE_KEYS.URL]: string;
     id: number;
-}
-
-export enum PROFILE_KEYS {
-    EMAIL = 'email',
-    PASSWORD = 'password',
-    FIRST_NAME = 'firstName',
-    LAST_NAME = 'lastName',
-    URL = 'url',
 }
 
 export interface UserProfileProps {

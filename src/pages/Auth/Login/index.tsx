@@ -1,14 +1,13 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { INPUTS_KEYS, PRegister } from '../types';
+import { PRegister } from '../types';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, setUser } from '../../../redux/User';
+import { auth } from '../../../redux/User';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../redux/store';
-import { IUser } from '../../../redux/User/types';
 
 interface Props {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;

@@ -9,7 +9,6 @@ import PeopleIcon from '@mui/icons-material/People';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { memo, useState } from 'react';
-import axios from 'axios';
 import BookIcon from '@mui/icons-material/Book';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import { AppDispatch, RootState } from '../../redux/store';
@@ -21,24 +20,22 @@ import { createLesson } from '../../redux/Lesson';
 const Header = memo(() => {
     const user = useSelector((store: RootState) => store.user.user);
     const [isFold, setIsFold] = useState<boolean>(true);
-    const [isClose, setIsClose] = useState<boolean>(false)
     const navigate = useLocation();
     const dispatch = useDispatch<AppDispatch>();
-
 
     const onFold = () => {
         setIsFold(false);
     };
 
     const closeHeader = () => {
-        setIsFold(true)
-    }
-
-    const createLes = async () => {
-        dispatch(createLesson(user))
+        setIsFold(true);
     };
 
-    const joinLesson = () => { };
+    const createLes = async () => {
+        dispatch(createLesson(user));
+    };
+
+    const joinLesson = () => {};
 
     return (
         <header onMouseEnter={onFold} className={`header-component ${isFold ? '' : 'header-component--active'}`}>
@@ -112,7 +109,7 @@ const Header = memo(() => {
                         {!isFold && 'Присодениться к уроку'}
                     </Button>
                 ) : (
-                    <a href="https://jazz.sber.ru/wd7a9d?psw=OBgRDB8LDgVeCBYaQB8ZFlECCw" target="_blank">
+                    <a href="https://jazz.sber.ru/wd7a9d?psw=OBgRDB8LDgVeCBYaQB8ZFlECCw" target="_blank" rel="noreferrer">
                         <Button fullWidth variant="contained" onClick={createLes} className="header-component__button" startIcon={<AddIcon />}>
                             {!isFold && 'Запустить урок'}
                         </Button>

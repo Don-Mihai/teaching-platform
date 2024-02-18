@@ -32,15 +32,15 @@ const Register = ({ onChange, formValues }: Props) => {
     };
 
     const onSignUp = async () => {
-        const [error, isValid] = validate();
+        // const [error, isValid] = validate();
+        // setError(error);
+        // if (isValid) {
+        //     const user = (await axios.post('users', formValues)).data;
+        //     localStorage.setItem('userId', user.id);
+        //     navigate('/modules');
+        // }
 
-        setError(error);
-
-        if (isValid) {
-            const user = (await axios.post('users', formValues)).data;
-            localStorage.setItem('userId', user.id);
-            navigate('/modules');
-        }
+        axios.post('/hello');
     };
 
     const handleFocus = () => {

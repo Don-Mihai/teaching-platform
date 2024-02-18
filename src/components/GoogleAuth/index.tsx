@@ -1,7 +1,6 @@
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
 import { addToken } from '../../redux/User';
 import { useDispatch } from 'react-redux';
-import { jwtDecode } from 'jwt-decode';
 
 const GoogleAuth = () => {
     const dispatch = useDispatch();

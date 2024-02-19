@@ -38,40 +38,57 @@ const Main = () => {
     };
     return (
         <>
-            <GoogleAuth />
-            {groups.map(group => {
-                return (
-                    <>
-                        <div>
-                            <a href={group.url} target="_blank" rel="noreferrer">
-                                Запустить сбер джаз
-                            </a>
-                            <a href="http://study.inordic.ru/panel/users_lesson_visits?group=262" target="_blank" rel="noopener noreferrer">
-                                открыть уроки
-                            </a>
-                        </div>
+            <div>
+                <GoogleAuth />
+            </div>
 
-                        <FileDrop onSendFiles={upload} borderRadius={'6px'}>
-                            <Button variant="outlined" sx={{ height: '80px' }}>
-                                Перетащи сюда видео
-                            </Button>
-                        </FileDrop>
-                        <TextField onChange={onChange} value={formValues.title} name="title" placeholder="Введите название видео" />
-                        <div>
-                            <span>{pinCode}</span>
-                            <img src="./IconCarblack.webp" alt="IconCarblack" onClick={copyPinCode} />
-                        </div>
-                        <Snackbar
-                            open={snackbarOpen}
-                            anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-                            autoHideDuration={2000}
-                            onClose={handleCloseSnackbar}
-                        >
-                            <div className="pin__cont">Url скопирован!</div>
-                        </Snackbar>
-                    </>
-                );
-            })}
+            {groups.map(group => (
+                <div key={group.id}>
+                    <Button href={group.url} target="_blank" rel="noreferrer" variant="contained" color="primary" sx={{ mr: 2, mb: 2 }}>
+                        Запустить сбер джаз
+                    </Button>
+                    <Button
+                        href="http://study.inordic.ru/panel/users_lesson_visits?group=262"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="contained"
+                        color="secondary"
+                        sx={{ mb: 2 }}
+                    >
+                        Открыть уроки
+                    </Button>
+
+                    <FileDrop onSendFiles={upload} borderRadius={'6px'}>
+                        <Button variant="outlined" sx={{ height: '80px' }}>
+                            Перетащи сюда видео
+                        </Button>
+                    </FileDrop>
+
+                    <TextField
+                        onChange={onChange}
+                        value={formValues.title}
+                        name="title"
+                        placeholder="Введите название видео"
+                        fullWidth
+                        variant="outlined"
+                        sx={{ mb: 2 }}
+                    />
+
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: 2 }}>
+                        <span style={{ marginRight: '8px' }}>{pinCode}</span>
+                        <img src="./IconCarblack.webp" alt="IconCarblack" onClick={copyPinCode} style={{ cursor: 'pointer' }} />
+                    </div>
+
+                    <Snackbar
+                        open={snackbarOpen}
+                        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                        autoHideDuration={2000}
+                        onClose={handleCloseSnackbar}
+                    >
+                        <div style={{ background: '#fff', padding: '8px 16px', borderRadius: '4px' }}>Url скопирован!</div>
+                    </Snackbar>
+                </div>
+            ))}
         </>
     );
 };

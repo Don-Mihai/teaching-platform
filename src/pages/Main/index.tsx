@@ -21,7 +21,7 @@ const Main = () => {
 
     const upload = async (video: Blob) => {
         const url = await dispatch(uploadVideo({ video, token: localStorage.getItem('id_token') || '', lessonId: 0, title: formValues.title })).unwrap();
-        setPinCode(url);
+        setPinCode('https://www.youtube.com/embed/' + url);
     };
 
     const onChange = (e: any) => {

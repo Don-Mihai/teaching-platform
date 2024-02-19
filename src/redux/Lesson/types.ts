@@ -34,5 +34,6 @@ export interface LessonState {
 export interface PUploadVideo {
     video: Blob;
     token: string;
-    lessonId: number | string;
+    lessonId?: number | string;
+    title?: string;
 }

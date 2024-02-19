@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ILesson, LessonState, PLesson, PUploadVideo } from './types';
 import { format } from 'date-fns';
-import { calculateModuleNumber } from '../../utils/utils';
 
 const initialState: LessonState = {
     lessons: [],
@@ -36,7 +35,7 @@ export const createLesson = createAsyncThunk('lesson/create', async (user: any):
         teacherId: user.id,
         createDate: currentDate,
         title: currentDate,
-        moduleId: calculateModuleNumber(lessons.length),
+        moduleId: 0,
         groupId: user.groupId,
     };
     const response = await axios.post('lessons', payload);
@@ -72,7 +71,7 @@ export const uploadVideo = createAsyncThunk('lessons/removeLesson', async (ojb: 
             url,
             {
                 snippet: {
-                    title: 'Test Video Title',
+                    title: ojb.title || 'Test Video Title',
                     description: 'Test Video Description',
                 },
                 status: {
@@ -96,9 +95,7 @@ export const uploadVideo = createAsyncThunk('lessons/removeLesson', async (ojb: 
 
         console.log('res', response.data, res.data);
 
-        await axios.put(`lessons/${ojb.lessonId}`, { urlVideo: res.data.id });
-
-        alert('Video uploaded successfully!');
+        return res.data.id;
     } catch (error) {
         console.error('Upload failed:', error);
         alert('Upload failed');

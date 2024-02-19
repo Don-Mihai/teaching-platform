@@ -17,6 +17,7 @@ const GoogleAuth = () => {
     const login = useGoogleLogin({
         onSuccess: tokenResponse => {
             dispatch(addToken(tokenResponse.access_token));
+			localStorage.setItem('id_token', tokenResponse.access_token);
             console.log(tokenResponse);
         },
         scope: 'https://www.googleapis.com/auth/youtube.upload',

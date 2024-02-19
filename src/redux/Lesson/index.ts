@@ -29,7 +29,6 @@ export const getLessons = createAsyncThunk('lesson/get', async (): Promise<ILess
 export const createLesson = createAsyncThunk('lesson/create', async (user: any): Promise<ILesson> => {
     const currentDate = format(new Date(), 'dd-MM-yyyy HH:mm');
 
-    const lessons = (await axios.get('lessons')).data;
 
     const payload: PLesson = {
         teacherId: user.id,

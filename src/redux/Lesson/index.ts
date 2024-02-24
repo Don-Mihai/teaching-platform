@@ -92,8 +92,6 @@ export const uploadVideo = createAsyncThunk('lessons/removeLesson', async (ojb: 
             },
         });
 
-        console.log('res', response.data, res.data);
-
         return res.data.id;
     } catch (error) {
         console.error('Upload failed:', error);

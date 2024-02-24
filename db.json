@@ -1,127 +1,127 @@
 {
-  "users": [
-    {
-      "firstName": "admin",
-      "email": "admin",
-      "password": "admin",
-      "id": 1,
-      "lastName": "admin",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "role": "ADMIN"
-    },
-    {
-      "firstName": "Ruslan",
-      "email": "rnagumanov57@gmail.com",
-      "password": "12345678D",
-      "id": 2,
-      "lastName": "Nagumanov",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "role": "TEACHER"
-    },
-    {
-      "firstName": "Моисей",
-      "lastName": "sososo",
-      "email": "test@mail.ru",
-      "password": "M00000000",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "id": 3,
-      "role": "STUDENT"
-    },
-    {
-      "email": "test@mail.ru",
-      "password": "M00000000",
-      "firstName": "Bruklin",
-      "lastName": "sososo",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "id": 4,
-      "role": "STUDENT"
-    },
-    {
-      "firstName": "jlkjlkjlkj",
-      "lastName": "sososo",
-      "email": "crcrt@inbox.ru",
-      "password": "2309r8230948A",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "id": 5,
-      "role": "STUDENT"
-    },
-    {
-      "firstName": "Алкександр",
-      "lastName": "sososo",
-      "email": "8832509238562a@gmail.com",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "password": "Ade80r20e",
-      "id": 6,
-      "role": "STUDENT"
-    },
-    {
-      "firstName": "Cfdifjasdf",
-      "lastName": "sososo",
-      "email": "alexsave1992329@mail.ru",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "password": "afA32309u",
-      "id": 7,
-      "role": "STUDENT"
-    },
-    {
-      "firstName": "Алкександр",
-      "lastName": "sososo",
-      "email": "crc23rrt@inbox.ru",
-      "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
-      "password": "M00023000",
-      "id": 8,
-      "role": "STUDENT"
-    }
-  ],
-  "cards": [
-    {
-      "id": 1,
-      "src": "https://timeweb.com/ru/community/article/ff/ff0770833a0026f1b62813408cf5bfb6.jpg",
-      "title": "Модуль 1, (HTML + CSS)",
-      "subtitle": "",
-      "footer": "Lorem, isdfs"
-    },
-    {
-      "id": 2,
-      "src": "https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-superJumbo.jpg",
-      "title": "Модуль 2, (Git + JS)",
-      "subtitle": "",
-      "footer": "Lorem, isdfs"
-    },
-    {
-      "id": 3,
-      "src": "https://grand-seo.ru/wp-content/uploads/2019/09/iskhodnyj-kod.jpg",
-      "title": "Модуль 3, (JS Pro)",
-      "subtitle": "",
-      "footer": "Lorem, isdfs"
-    },
-    {
-      "id": 4,
-      "src": "https://www.freecodecamp.org/news/content/images/2022/03/photo-1619410283995-43d9134e7656.jpeg",
-      "title": "Модуль 4, (React)",
-      "subtitle": "",
-      "footer": "Lorem, isdfs"
-    },
-    {
-      "id": 5,
-      "src": "https://thejs.dev/static/c093da9bf79387ab6e1f1db2f9a3a8c2/dd13c/hero.jpg",
-      "title": "Модуль 5, (React)",
-      "subtitle": "",
-      "footer": "Lorem, isdfs"
-    },
-    {
-      "id": 6,
-      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU-LNlVdlAhc1kbT9kKZuTnBqzgma39B02aA&usqp=CAU",
-      "title": "Модуль  6, (Node Js)",
-      "subtitle": "",
-      "footer": "Lorem, isdfs"
-    }
-  ],
-  "lessons": [
-    {
-      "urlVideo": "Mytit6xowv4",
-      "id": 1
-    }
-  ],
-  "groups": []
+    "users": [
+        {
+            "firstName": "admin",
+            "email": "admin",
+            "password": "admin",
+            "id": 1,
+            "lastName": "admin",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "role": "ADMIN"
+        },
+        {
+            "firstName": "Ruslan",
+            "email": "rnagumanov57@gmail.com",
+            "password": "12345678D",
+            "id": 2,
+            "lastName": "Nagumanov",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "role": "TEACHER"
+        },
+        {
+            "firstName": "Моисей",
+            "lastName": "sososo",
+            "email": "test@mail.ru",
+            "password": "M00000000",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "id": 3,
+            "role": "STUDENT"
+        },
+        {
+            "email": "test@mail.ru",
+            "password": "M00000000",
+            "firstName": "Bruklin",
+            "lastName": "sososo",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "id": 4,
+            "role": "STUDENT"
+        },
+        {
+            "firstName": "jlkjlkjlkj",
+            "lastName": "sososo",
+            "email": "crcrt@inbox.ru",
+            "password": "2309r8230948A",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "id": 5,
+            "role": "STUDENT"
+        },
+        {
+            "firstName": "Алкександр",
+            "lastName": "sososo",
+            "email": "8832509238562a@gmail.com",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "password": "Ade80r20e",
+            "id": 6,
+            "role": "STUDENT"
+        },
+        {
+            "firstName": "Cfdifjasdf",
+            "lastName": "sososo",
+            "email": "alexsave1992329@mail.ru",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "password": "afA32309u",
+            "id": 7,
+            "role": "STUDENT"
+        },
+        {
+            "firstName": "Алкександр",
+            "lastName": "sososo",
+            "email": "crc23rrt@inbox.ru",
+            "url": "https://i1.wallbox.ru/wallpapers/main/201547/9dbdf1269bf5a53.jpg",
+            "password": "M00023000",
+            "id": 8,
+            "role": "STUDENT"
+        }
+    ],
+    "cards": [
+        {
+            "id": 1,
+            "src": "https://timeweb.com/ru/community/article/ff/ff0770833a0026f1b62813408cf5bfb6.jpg",
+            "title": "Модуль 1, (HTML + CSS)",
+            "subtitle": "",
+            "footer": "Lorem, isdfs"
+        },
+        {
+            "id": 2,
+            "src": "https://static01.nyt.com/images/2021/09/14/science/07CAT-STRIPES/07CAT-STRIPES-superJumbo.jpg",
+            "title": "Модуль 2, (Git + JS)",
+            "subtitle": "",
+            "footer": "Lorem, isdfs"
+        },
+        {
+            "id": 3,
+            "src": "https://grand-seo.ru/wp-content/uploads/2019/09/iskhodnyj-kod.jpg",
+            "title": "Модуль 3, (JS Pro)",
+            "subtitle": "",
+            "footer": "Lorem, isdfs"
+        },
+        {
+            "id": 4,
+            "src": "https://www.freecodecamp.org/news/content/images/2022/03/photo-1619410283995-43d9134e7656.jpeg",
+            "title": "Модуль 4, (React)",
+            "subtitle": "",
+            "footer": "Lorem, isdfs"
+        },
+        {
+            "id": 5,
+            "src": "https://thejs.dev/static/c093da9bf79387ab6e1f1db2f9a3a8c2/dd13c/hero.jpg",
+            "title": "Модуль 5, (React)",
+            "subtitle": "",
+            "footer": "Lorem, isdfs"
+        },
+        {
+            "id": 6,
+            "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU-LNlVdlAhc1kbT9kKZuTnBqzgma39B02aA&usqp=CAU",
+            "title": "Модуль  6, (Node Js)",
+            "subtitle": "",
+            "footer": "Lorem, isdfs"
+        }
+    ],
+    "lessons": [
+        {
+            "urlVideo": "Mytit6xowv4",
+            "id": 1
+        }
+    ],
+    "groups": []
 }

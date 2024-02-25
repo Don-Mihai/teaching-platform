@@ -17,6 +17,10 @@ export const lessonSlice = createSlice({
         builder.addCase(getLessons.fulfilled, (state, action) => {
             state.lessons = action.payload || [];
         });
+        builder.addCase(editLesson.fulfilled, (state, action) => {
+            const { updatedLesson } = action.payload;
+            state.lessons = state.lessons.map(lesson => (lesson.id === updatedLesson.id ? updatedLesson : lesson));
+        });
     },
 });
 
@@ -43,11 +47,16 @@ export const createLesson = createAsyncThunk('lesson/create', async (user: any):
     return response.data;
 });
 
-export const editLesson = createAsyncThunk('lesson/create', async (lesson: any): Promise<ILesson> => {
-    const payload: PLesson = {
-        ...lesson,
-    };
-    const response = await axios.put('lessons', payload);
+// export const editLesson = createAsyncThunk('lesson/create', async (lesson: any): Promise<ILesson> => {
+//     const payload: PLesson = {
+//         ...lesson,
+//     };
+//     const response = await axios.put('lessons', payload);
+//     return response.data;
+// });
+
+export const editLesson = createAsyncThunk('lesson/create', async (payload: { lesson: ILesson }) => {
+    const response = await axios.put(`lessons/${payload.lesson.id}`, payload.lesson);
     return response.data;
 });
 

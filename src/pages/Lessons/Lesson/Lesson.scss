@@ -1,39 +1,19 @@
-.lessons-page {
+.modal-item {
+    padding: 20px;
 
-    .modal-lesson {
-        width: 400px;
-        height: 600px;
+    &__lesson {
+        font-size: 24px;
+        padding-bottom: 15px;
+        text-transform: uppercase;
     }
 
-    .modal-item {
-
-        display: flex;
-        height: 100%;
-
-        &__content {
-            flex-grow: 1;
-            overflow: auto;
-        }
-
-        &__main {
-            display: flex;
-            justify-content: center;
-            padding: 5px;
-            width: 50%;
-        }
-    }
-
-    .lesson {
-        padding: 20px;
-        background-color: #d2cfcf;
-        transition: 0.15s;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-        &:hover {
-            transform: scaleY(1.1);
-            box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.6);
-        }
+    &__title {
+        font-size: 16px;
+        padding-bottom: 15px;
     }
 }
+
+.video {
+    padding-bottom: 15px;
+    width: 100%;
+} 

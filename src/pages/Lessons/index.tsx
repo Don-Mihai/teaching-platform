@@ -44,7 +44,7 @@ const Lessons = () => {
                     );
                 })}
             </div>
-            <Lesson id={id} onCloseModal={onCloseModal} title={lessons.find(item => item.id === id)?.title || ''} token={token} />
+            <Lesson id={id} onCloseModal={onCloseModal} title={lessons.find(item => item.id === id)?.title || ''} token={token}  />
         </div>
     );
 };

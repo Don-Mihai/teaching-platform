@@ -1,17 +1,5 @@
 export enum PAGE_ROUTES {
-    Auth = '/',
-    Modules = '/modules',
-    Listeners = '/listeners',
-    Tasks = '/tasks',
-    Profile = '/profile',
-	Lessons = '/lessons',
+    MAIN = '/',
 }
 
-export interface IGroups {
-    group: string;
-}
-
-export interface IGroup {
-    teacher: string;
-    students: string;
-}
+export const BASE_URL = 'https://65e07438d3db23f7624955e9.mockapi.io/';

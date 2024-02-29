@@ -1,15 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import lesson from './Lesson';
 import user from './User';
 import group from './Group';
-import card from './Card';
 
 export const store = configureStore({
     reducer: {
-        lesson,
         user,
         group,
-        card,
     },
 });
 

@@ -7,10 +7,11 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Main from './pages/Main';
+import { PAGE_ROUTES } from './utils/types';
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: PAGE_ROUTES.MAIN,
         element: <Main />,
     },
 ]);

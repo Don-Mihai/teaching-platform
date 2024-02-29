@@ -20,6 +20,7 @@ export const userSlice = createSlice({
         },
         addToken: (state, action: PayloadAction<string>) => {
             state.token = action.payload;
+			localStorage.setItem('id_token', action.payload);
         },
     },
     extraReducers(builder) {

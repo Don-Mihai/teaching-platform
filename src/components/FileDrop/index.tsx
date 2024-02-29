@@ -5,9 +5,10 @@ interface Props {
     children: any;
     borderRadius?: string;
     onSendFiles: (files: Blob) => void;
+    fullWidth?: boolean;
 }
 
-const FileDrop = ({ children, borderRadius, onSendFiles }: Props) => {
+const FileDrop = ({ children, borderRadius, onSendFiles, fullWidth }: Props) => {
     const [dragActive, setDragActive] = useState<boolean>(false);
     const inputRef: MutableRefObject<HTMLInputElement> = useRef({} as HTMLInputElement);
 
@@ -51,7 +52,12 @@ const FileDrop = ({ children, borderRadius, onSendFiles }: Props) => {
     };
 
     return (
-        <form className={'component-file-drop'} onMouseEnter={() => setDragActive(true)} onDragEnter={handleDrag}>
+        <form
+            className={'component-file-drop'}
+            style={{ width: fullWidth ? '100%' : 'fit-content' }}
+            onMouseEnter={() => setDragActive(true)}
+            onDragEnter={handleDrag}
+        >
             {children}
             <input ref={inputRef} onChange={inputChangeHandler} type="file" className={'component-file-drop__input'} multiple={true} accept="image/*" />
             {dragActive && (

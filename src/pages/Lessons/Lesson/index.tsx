@@ -2,7 +2,7 @@ import { Button, Dialog, IconButton, Menu, MenuItem, TextField } from '@mui/mate
 import './Lesson.scss';
 import FileDrop from '../../../components/FileDrop';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLessons, removeLesson, uploadVideo } from '../../../redux/Lesson';
+import { editLesson, getLessons, removeLesson, uploadVideo } from '../../../redux/Lesson';
 import { AppDispatch, RootState } from '../../../redux/store';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import axios from 'axios';
-import { ILesson } from '..';
+import { ILesson } from '../../../redux/Lesson/types';
 
 interface Props {
     onCloseModal: () => void;
@@ -27,7 +27,7 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
     const open = Boolean(anchorEl);
     const lessons = useSelector((store: RootState) => store.lesson.lessons);
     const videoUrl = lessons.find(item => item.id === id)?.urlVideo || '';
-    const [formValues, setFormValues] = useState({title});
+    const [formValues, setFormValues] = useState({ title });
 
     useEffect(() => {
         dispatch(getById());
@@ -41,13 +41,13 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
         setAnchorEl(null);
     };
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
+    const handleRemoveLesson = async (lessongId: number) => {
+        await dispatch(removeLesson(lessongId));
+        dispatch(getLessons());
     };
 
-    const handleRemoveLesson = async (lessonId: number) => {
-        await dispatch(removeLesson(lessonId));
-        dispatch(getLessons());
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
     };
 
     const editLesson = () => {
@@ -59,20 +59,24 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
         const key = event.target.name;
         const value = event.target.value;
         setFormValues({ ...formValues, [key]: value });
-    }
+    };
 
     const saveChanges = () => {
         axios.put(`http://localhost:3001/lessons/${id}`, formValues);
         setIsEditMode(false);
-    }
+    };
 
     const cancelChanges = () => {
-        setFormValues({title: ''});
+        setFormValues({ title: '' });
         setIsEditMode(false);
-    }
+    };
 
     const upload = (video: Blob) => {
         dispatch(uploadVideo({ video, token: token || '', lessonId: id }));
+    };
+
+    const editPost = () => {
+        setIsEditMode(true);
     };
 
     return (
@@ -91,7 +95,7 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
                 ) : (
                     <>
                         <span>Название: </span>
-                        <TextField name='title' onChange={onChange} value={formValues.title} />
+                        <TextField name="title" onChange={onChange} value={formValues.title} />
                     </>
                 )}
 
@@ -120,11 +124,18 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
                         'aria-labelledby': 'basic-button',
                     }}
                 >
-                    <MenuItem onClick={editLesson}>Редактировать</MenuItem>
+                    <MenuItem onClick={editPost}>Редактировать</MenuItem>
                 </Menu>
+                {!isEditMode ? (
+                    <div className="modal-item__title"> Название: {title}</div>
+                ) : (
+                    <TextField name="title" onChange={onChange} value={formValues?.title} />
+                )}
                 <div className="modal-item__video">
                     <FileDrop borderRadius={'0'} onSendFiles={upload}>
-                        dfiv
+                        <Button className="modal-item__video-btn" fullWidth>
+                            Загрузить видео
+                        </Button>
                     </FileDrop>
                 </div>
             </div>

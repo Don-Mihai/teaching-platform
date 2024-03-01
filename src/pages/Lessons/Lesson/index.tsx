@@ -10,6 +10,7 @@ import { getById } from '../../../redux/User';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
+import axios from 'axios';
 import { ILesson } from '../../../redux/Lesson/types';
 
 interface Props {
@@ -20,29 +21,54 @@ interface Props {
 }
 
 const Lesson = ({ id, onCloseModal, title, token }: Props) => {
+    const dispatch = useDispatch<AppDispatch>();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [isEditMode, setIsEditMode] = useState(false);
+    const open = Boolean(anchorEl);
     const lessons = useSelector((store: RootState) => store.lesson.lessons);
     const videoUrl = lessons.find(item => item.id === id)?.urlVideo || '';
-    const [isEditMode, setIsEditMode] = useState(false);
-    const [formValues, setFormValues] = useState<ILesson | null>(null);
-    const open = Boolean(anchorEl);
-    const dispatch = useDispatch<AppDispatch>();
-
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const [formValues, setFormValues] = useState({ title });
 
     useEffect(() => {
         dispatch(getById());
     }, []);
 
+    useEffect(() => {
+        setFormValues({ ...formValues, title });
+    }, [title]);
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     const handleRemoveLesson = async (lessongId: number) => {
         await dispatch(removeLesson(lessongId));
         dispatch(getLessons());
+    };
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const editLesson = () => {
+        setIsEditMode(true);
+        handleClose();
+    };
+
+    const onChange = (event: any) => {
+        const key = event.target.name;
+        const value = event.target.value;
+        setFormValues({ ...formValues, [key]: value });
+    };
+
+    const saveChanges = () => {
+        axios.put(`http://localhost:3001/lessons/${id}`, formValues);
+        setIsEditMode(false);
+    };
+
+    const cancelChanges = () => {
+        setFormValues({ title: '' });
+        setIsEditMode(false);
     };
 
     const upload = (video: Blob) => {
@@ -53,31 +79,10 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
         setIsEditMode(true);
     };
 
-    const onChange = (event: any) => {
-        const key = event.target.name;
-        const value = event.target.value;
-        if (formValues !== null) {
-            setFormValues({ ...formValues, [key]: value });
-        }
-    };
-
-    const saveChanges = async () => {
-        if (formValues !== null) {
-            dispatch(editLesson({ lesson: formValues }));
-            setIsEditMode(false);
-        }
-    };  
-
-    const cancelChanges = () => {
-        setFormValues(null);
-        setIsEditMode(false);
-    };
-
     return (
         <Dialog fullWidth open={Boolean(id)} onClose={onCloseModal}>
             <div className="modal-item">
-                {!isEditMode ? <div className="modal-item__lesson">Урок {id}</div> : <TextField name="title" onChange={onChange} value={formValues?.title} />}
-
+                <div className="modal-item__lesson-title">Урок {id}</div>
                 <iframe
                     className="video"
                     src={`https://www.youtube.com/embed/${videoUrl}`}
@@ -85,6 +90,15 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                 ></iframe>
+                {!isEditMode ? (
+                    <div className="modal-item__title"> Название: {formValues.title}</div>
+                ) : (
+                    <>
+                        <span>Название: </span>
+                        <TextField name="title" onChange={onChange} value={formValues.title} />
+                    </>
+                )}
+
                 {isEditMode ? (
                     <>
                         <IconButton color="success" className="actions__icon-btn btn" onClick={saveChanges}>
@@ -112,7 +126,11 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
                 >
                     <MenuItem onClick={editPost}>Редактировать</MenuItem>
                 </Menu>
-                {!isEditMode ? <div className="modal-item__title"> Название: {title}</div> : <TextField name="title" onChange={onChange} value={formValues?.title} />}
+                {!isEditMode ? (
+                    <div className="modal-item__title"> Название: {title}</div>
+                ) : (
+                    <TextField name="title" onChange={onChange} value={formValues?.title} />
+                )}
                 <div className="modal-item__video">
                     <FileDrop borderRadius={'0'} onSendFiles={upload}>
                         <Button className="modal-item__video-btn" fullWidth>

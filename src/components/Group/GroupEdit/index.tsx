@@ -42,7 +42,7 @@ const GroupEdit = ({ group, isShowed, onFlip }: Props) => {
             <TextField onChange={onChange} value={formValues.name} name="name" placeholder="Введите название группы" fullWidth variant="outlined" />
             <TextField onChange={onChange} value={formValues.sber} name="sber" placeholder="Введите ссылку на сберджаз" fullWidth variant="outlined" />
             <TextField onChange={onChange} value={formValues.nordic} name="nordic" placeholder="Введите ссылку на нордик" fullWidth variant="outlined" />
-            <button onClick={onFlip}>asdasd</button>
+            <button onClick={onFlip}>Редактировать</button>
             <Button onClick={editGroup}>Сохранить изменения</Button>
         </div>
     );

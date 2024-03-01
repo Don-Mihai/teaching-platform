@@ -126,11 +126,6 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
                 >
                     <MenuItem onClick={editPost}>Редактировать</MenuItem>
                 </Menu>
-                {!isEditMode ? (
-                    <div className="modal-item__title"> Название: {title}</div>
-                ) : (
-                    <TextField name="title" onChange={onChange} value={formValues?.title} />
-                )}
                 <div className="modal-item__video">
                     <FileDrop borderRadius={'0'} onSendFiles={upload}>
                         <Button className="modal-item__video-btn" fullWidth>

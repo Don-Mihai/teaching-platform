@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import { IGroup } from '../../../redux/Group/types';
 import FileDrop from '../../FileDrop';
-import { TextField, Snackbar } from '@mui/material';
+import { TextField, Snackbar, Menu, MenuItem } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { AppDispatch } from '../../../redux/store';
@@ -19,6 +19,8 @@ const GroupMain = ({ group, isShowed, onFlip }: Props) => {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [pinCode, setPinCode] = useState('Видео пока еще не загружено');
     const [formValues, setFormValues] = useState({ title: '', url: '' });
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const openn = Boolean(anchorEl);
 
     const upload = async (video: Blob) => {
         const url = await dispatch(uploadVideo({ video, token: localStorage.getItem('id_token') || '', title: formValues.title })).unwrap();
@@ -37,6 +39,11 @@ const GroupMain = ({ group, isShowed, onFlip }: Props) => {
     const handleCloseSnackbar = () => {
         setSnackbarOpen(false);
     };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
         <div className={'group-main'}>
             <div className="group__title">{group.name}</div>
@@ -52,7 +59,8 @@ const GroupMain = ({ group, isShowed, onFlip }: Props) => {
             >
                 Открыть уроки
             </Button>
-            <button onClick={onFlip}>sadfasdf</button>
+
+            <button onClick={onFlip}>Редактировать</button>
 
             <TextField onChange={onChange} value={formValues.title} name="title" placeholder="Введите название видео" fullWidth variant="outlined" />
 
@@ -74,6 +82,19 @@ const GroupMain = ({ group, isShowed, onFlip }: Props) => {
             <Snackbar open={snackbarOpen} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }} autoHideDuration={2000} onClose={handleCloseSnackbar}>
                 <div style={{ background: '#fff', padding: '8px 16px', borderRadius: '4px' }}>Url скопирован!</div>
             </Snackbar>
+            <div>
+                <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={openn}
+                    onClose={handleClose}
+                    MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                    }}
+                >
+                    <MenuItem onClick={handleClose}>Редактировать</MenuItem>
+                </Menu>
+            </div>
         </div>
     );
 };

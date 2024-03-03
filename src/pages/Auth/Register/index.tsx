@@ -6,6 +6,9 @@ import { useState } from 'react';
 import { validateEmail, validateName, validatePassword } from '../../../utils/utils';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { register } from '../../../redux/User';
+import { AppDispatch } from '../../../redux/store';
 interface Props {
     onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     formValues: Partial<PRegister>;
@@ -15,6 +18,7 @@ const Register = ({ onChange, formValues }: Props) => {
     const [error, setError] = useState<any>({});
 
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
 
     const validate = () => {
         const errors = { ...validateName(formValues), ...validateEmail(formValues), ...validatePassword(formValues) };
@@ -35,8 +39,7 @@ const Register = ({ onChange, formValues }: Props) => {
         const [error, isValid] = validate();
         setError(error);
         if (isValid) {
-            const user = (await axios.post('users', formValues)).data;
-            localStorage.setItem('userId', user.id);
+            dispatch(register(formValues));
             navigate('/modules');
         }
     };

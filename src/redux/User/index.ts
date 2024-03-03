@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { UserState, IUser, PAuth, ROLES } from './types';
+import axiosInstance from '../../utils/api';
 
 const initialState: UserState = {
     user: {} as IUser,
@@ -29,6 +30,10 @@ export const userSlice = createSlice({
             })
             .addCase(getListeners.fulfilled, (state, action) => {
                 state.listeners = action.payload || [];
+            })
+            .addCase(register.fulfilled, (state, action) => {
+                state.token = action.payload.token;
+                state.user = action.payload.user;
             });
     },
 });
@@ -51,7 +56,7 @@ export const getListeners = createAsyncThunk('user/getListeners', async (): Prom
 
 export const getById = createAsyncThunk('user/getById', async (userId?: number): Promise<IUser[] | undefined> => {
     const id = localStorage.getItem('userId') || String(userId);
-    const user = (await axios.get(`users/${id}`)).data;
+    const user = (await axiosInstance.get(`users/${id}`)).data;
 
     return user;
 });
@@ -61,5 +66,14 @@ export const auth = createAsyncThunk('user/auth', async (payload: PAuth): Promis
         const user = (await axios.get(`users?email=${payload.email}&password=${payload.password}`)).data[0];
         localStorage.setItem('userId', String(user.id));
         return user;
+    } catch (error) {}
+});
+
+export const register = createAsyncThunk('user/register', async (payload: any): Promise<any> => {
+    try {
+        const { user, token } = (await axios.post('users/register', payload)).data;
+
+        localStorage.setItem('token', token);
+        return { user, token };
     } catch (error) {}
 });

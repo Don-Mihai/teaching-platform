@@ -31,11 +31,18 @@ const UserData = ({ user }: Props) => {
         await axios.put(`users/${formValues.id}`, formValues);
     };
 
+	const saveImg = (file: Blob) => {
+        const formData = new FormData();
+        formData.append('filedata', file as Blob);
+
+        axios.post('http://localhost:3003/upload-img', formData);
+    };
+
     return (
         <div className="user-data">
             <div className="user-data__left">
                 <div className="user-data__avatar-container">
-                    <FileDrop onSendFiles={() => {}}>
+                    <FileDrop onSendFiles={saveImg}>
                         <Avatar className="user-data__avatar" src={formValues?.[PROFILE_KEYS.URL]}>
                             {`${formValues?.[PROFILE_KEYS.FIRST_NAME]?.charAt(0) || ''}${formValues?.[PROFILE_KEYS.LAST_NAME]?.charAt(0) || ''}`}
                         </Avatar>

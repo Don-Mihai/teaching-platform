@@ -1,13 +1,12 @@
 // api/axiosConfig.ts
 import axios from 'axios';
-import { store } from '../redux/store';
 
 const axiosInstance = axios.create({
     baseURL: 'http://localhost:3003/',
 });
 
 axiosInstance.interceptors.request.use(config => {
-    const token = store.getState().user.token;
+    const token = localStorage.getItem('token');
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
     }

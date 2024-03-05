@@ -1,11 +1,10 @@
 import Button from '@mui/material/Button';
 import { IGroup } from '../../../redux/Group/types';
-import FileDrop from '../../FileDrop';
-import { TextField, Snackbar } from '@mui/material';
+import { TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { AppDispatch } from '../../../redux/store';
-import { edit, uploadVideo } from '../../../redux/Group';
+import { edit } from '../../../redux/Group';
 import '../Group.scss';
 import './GroupEdit.scss';
 

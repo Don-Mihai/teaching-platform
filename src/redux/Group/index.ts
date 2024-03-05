@@ -15,6 +15,9 @@ export const groupSlice = createSlice({
         builder.addCase(get.fulfilled, (state, action) => {
             state.groups = action.payload || [];
         });
+        builder.addCase(addGroup.fulfilled, (state, action) => {
+            state.groups.push(action.payload);
+        });
     },
 });
 
@@ -32,6 +35,12 @@ export const edit = createAsyncThunk('groups/edit', async (payload: any): Promis
     const group = (await axios.put(BASE_URL + `groups/${payload?.id}`, payload)).data;
 
     return group;
+});
+
+export const addGroup = createAsyncThunk('groups/addGroup', async (payload: IGroup) => {
+    const response = await axios.post<IGroup>(`${BASE_URL}/groups`, payload);
+
+    return response.data;
 });
 
 export const uploadVideo = createAsyncThunk('lessons/removeLesson', async (ojb: PUploadVideo) => {

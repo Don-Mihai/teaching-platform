@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import './Auth.scss';
-import TextField from '@mui/material/TextField';
-import { AUTH_MODE, INPUTS_KEYS, PRegister, initValues } from './types';
-import { Button, Link } from '@mui/material';
+import { AUTH_MODE, PRegister, initValues } from './types';
 import SubLink from './SubLink';
 import Register from './Register';
 import Login from './Login';

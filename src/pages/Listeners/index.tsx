@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from '../../redux/store';
 import { useEffect, useState } from 'react';
 import { getListeners } from '../../redux/User';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { InputLabel, MenuItem } from '@mui/material';
+import { MenuItem } from '@mui/material';
 import { Avatar, Box, TextField } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
 

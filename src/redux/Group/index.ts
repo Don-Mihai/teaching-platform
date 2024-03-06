@@ -26,6 +26,7 @@ export const groupSlice = createSlice({
     },
 });
 
+// eslint-disable-next-line no-empty-pattern
 export const {} = groupSlice.actions;
 
 export default groupSlice.reducer;

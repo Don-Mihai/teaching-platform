@@ -5,6 +5,10 @@ import { RootState } from '../../redux/store';
 import UserData from './UserData';
 import Tasks from './UserData/Tasks';
 import ItemStatistic from './ItemStatistic';
+import MessageIcon from '@mui/icons-material/Message';
+import { IconButton } from '@mui/material';
+import { useState } from 'react';
+import Chat from '../../components/Chat';
 
 const Profile = () => {
   const user = useSelector((store: RootState) => store.user.user);
@@ -17,6 +21,16 @@ const Profile = () => {
   const todo = '12';
   const inProgress = '1';
   const complete = '3';
+
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className="profile-page">
@@ -35,6 +49,10 @@ const Profile = () => {
         <ItemStatistic title="CodeWars">
           <img src="https://www.codewars.com/users/SashaSavelev/badges/large" alt="" />
         </ItemStatistic>
+        <IconButton onClick={handleClickOpen} color="primary">
+          <MessageIcon />
+        </IconButton>
+        <Chat open={open} handleClose={handleClose} />
       </div>
     </div>
   );

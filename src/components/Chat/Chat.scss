@@ -1,0 +1,42 @@
+.chat {
+  &__content {
+    height: 100%;
+    display: flex;
+  }
+
+  &__users {
+    width: 200px;
+    border-right: 1px solid grey;
+  }
+
+  &__user {
+    padding: 20px;
+    border-bottom: 1px solid grey;
+
+    &.active {
+      background-color: #b0e0fc;
+    }
+
+    &.isMe {
+      background-color: #90f2d1;
+    }
+  }
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.message {
+  width: fit-content;
+  padding: 5px 10px;
+  background-color: #c9c8c8;
+  border-radius: 16px;
+
+  &--my {
+    margin-left: auto;
+    background-color: rgb(70, 197, 251);
+  }
+}

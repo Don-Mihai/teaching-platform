@@ -1,47 +1,47 @@
 .header-component {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
-    width: 70px;
-    background-color: rgb(42, 42, 42);
-    transition: 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  width: 70px;
+  background-color: rgb(42, 42, 42);
+  transition: 0.15s;
 
-    &--active {
-        width: 250px;
-    }
+  &--active {
+    width: 250px;
+  }
 
-    &__button {
-        white-space: nowrap;
-    }
+  &__button {
+    white-space: nowrap;
+  }
 }
 
 .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
 }
 
 .avatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .icon {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
 
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .text {
-    display: none;
+  display: none;
 }
 
 .arrowBackIcon {
-    display: flex;
-    padding-top: 10px;
+  display: flex;
+  padding-top: 10px;
 }

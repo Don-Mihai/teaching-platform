@@ -1,17 +1,17 @@
 export enum PAGE_ROUTES {
-    Auth = '/',
-    Modules = '/modules',
-    Listeners = '/listeners',
-    Tasks = '/tasks',
-    Profile = '/profile',
-	Lessons = '/lessons',
+  Auth = '/',
+  Modules = '/modules',
+  Listeners = '/listeners',
+  Tasks = '/tasks',
+  Profile = '/profile',
+  Lessons = '/lessons',
 }
 
 export interface IGroups {
-    group: string;
+  group: string;
 }
 
 export interface IGroup {
-    teacher: string;
-    students: string;
+  teacher: string;
+  students: string;
 }

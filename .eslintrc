@@ -1,9 +1,9 @@
 {
-    "extends": ["react-app", "prettier"],
-    "rules": {
-        "jsx-quotes": [1, "prefer-double"],
-        "react-hooks/exhaustive-deps": "off",
-        "jsonc/json-files": "off",
-    },
-    "plugins": ["prettier"],
+  "extends": ["react-app", "prettier"],
+  "rules": {
+    "jsx-quotes": [1, "prefer-double"],
+    "react-hooks/exhaustive-deps": "off",
+    "jsonc/json-files": "off",
+  },
+  "plugins": ["prettier"],
 }

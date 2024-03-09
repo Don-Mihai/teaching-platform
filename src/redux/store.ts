@@ -5,12 +5,12 @@ import group from './Group';
 import card from './Card';
 
 export const store = configureStore({
-    reducer: {
-        lesson,
-        user,
-        group,
-        card,
-    },
+  reducer: {
+    lesson,
+    user,
+    group,
+    card,
+  },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

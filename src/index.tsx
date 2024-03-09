@@ -13,33 +13,33 @@ import { store } from './redux/store';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const router = createBrowserRouter([
-    {
-        path: PAGE_ROUTES.Auth,
-        element: <Auth />,
-    },
-    {
-        path: PAGE_ROUTES.Modules,
-        element: <ModulesPage />,
-    },
-    {
-        path: PAGE_ROUTES.Listeners,
-        element: <Listeners />,
-    },
-    {
-        path: PAGE_ROUTES.Profile,
-        element: <Profile />,
-    },
-    {
-        path: PAGE_ROUTES.Lessons,
-        element: <Lessons />,
-    },
+  {
+    path: PAGE_ROUTES.Auth,
+    element: <Auth />,
+  },
+  {
+    path: PAGE_ROUTES.Modules,
+    element: <ModulesPage />,
+  },
+  {
+    path: PAGE_ROUTES.Listeners,
+    element: <Listeners />,
+  },
+  {
+    path: PAGE_ROUTES.Profile,
+    element: <Profile />,
+  },
+  {
+    path: PAGE_ROUTES.Lessons,
+    element: <Lessons />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-    <Provider store={store}>
-        <GoogleOAuthProvider clientId="515923033935-eaohjt4hlr1vd1u59rceqlj613v5un39.apps.googleusercontent.com">
-            <RouterProvider router={router} />
-        </GoogleOAuthProvider>
-    </Provider>
+  <Provider store={store}>
+    <GoogleOAuthProvider clientId="515923033935-eaohjt4hlr1vd1u59rceqlj613v5un39.apps.googleusercontent.com">
+      <RouterProvider router={router} />
+    </GoogleOAuthProvider>
+  </Provider>
 );

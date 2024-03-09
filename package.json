@@ -43,27 +43,7 @@
     ]
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{css,scss}": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.js": "eslint --cache --fix",
-    "*.css": "stylelint --fix",
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write",
     "**/*.{js,jsx,tsx,ts,less,md,json}": [
-      "node_modules/.bin/eslint --max-warnings=0",
       "prettier --write",
       "git add"
     ]

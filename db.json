@@ -126,5 +126,188 @@
       "moduleId": 1
     }
   ],
-  "groups": []
+  "groups": [],
+  "chats": [
+    {
+      "messages": [
+        {
+          "id": "86ba",
+          "text": "sdf",
+          "sender": "1",
+          "date": 9
+        },
+        {
+          "id": "8f91",
+          "text": "d",
+          "sender": "1",
+          "date": 9
+        },
+        {
+          "id": "b45b",
+          "text": "fd",
+          "sender": "1",
+          "date": 9
+        },
+        {
+          "id": "bd12",
+          "text": "dd",
+          "sender": "3",
+          "date": 9
+        },
+        {
+          "id": "2b79",
+          "text": "моё сообщение",
+          "sender": "3",
+          "date": 9
+        },
+        {
+          "id": "358a",
+          "text": "ааааа",
+          "sender": "3",
+          "date": 9
+        },
+        {
+          "id": "7c77",
+          "text": "ааа",
+          "sender": "3",
+          "date": 9
+        },
+        {
+          "id": "35a3",
+          "text": "аа",
+          "sender": "3",
+          "date": 9
+        },
+        {
+          "id": "d5ce",
+          "text": "zzz",
+          "sender": "1",
+          "date": 9
+        },
+        {
+          "id": "d475",
+          "text": "новое",
+          "sender": "1",
+          "date": 9
+        },
+        {
+          "id": "067e",
+          "text": "еще",
+          "sender": "1",
+          "date": 9
+        }
+      ],
+      "id": "1"
+    }
+  ],
+  "messages": [
+    {
+      "id": "59a5",
+      "text": "первое сообщение",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "d66a",
+      "text": "sdfs",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "41c4",
+      "text": "fddfg",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "7ec4",
+      "text": "sdfsd",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "77b2",
+      "text": "fd",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "2639",
+      "text": "d",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "86ba",
+      "text": "sdf",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "8f91",
+      "text": "d",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "b45b",
+      "text": "fd",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "bd12",
+      "text": "dd",
+      "sender": "3",
+      "date": 9
+    },
+    {
+      "id": "2b79",
+      "text": "моё сообщение",
+      "sender": "3",
+      "date": 9
+    },
+    {
+      "id": "358a",
+      "text": "ааааа",
+      "sender": "3",
+      "date": 9
+    },
+    {
+      "id": "7c77",
+      "text": "ааа",
+      "sender": "3",
+      "date": 9
+    },
+    {
+      "id": "35a3",
+      "text": "аа",
+      "sender": "3",
+      "date": 9
+    },
+    {
+      "id": "d5ce",
+      "text": "zzz",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "1220",
+      "text": "новое сообщение",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "d475",
+      "text": "новое",
+      "sender": "1",
+      "date": 9
+    },
+    {
+      "id": "067e",
+      "text": "еще",
+      "sender": "1",
+      "date": 9
+    }
+  ]
 }

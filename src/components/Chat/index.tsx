@@ -14,9 +14,11 @@ import SendIcon from '@mui/icons-material/Send';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getDate } from 'date-fns';
+import io from 'socket.io-client';
 
 // @ts-ignore
 import message from './message.mp3';
+import { generateChatId } from './utils';
 
 const audio = new Audio(message);
 
@@ -29,6 +31,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+const socket = io('http://localhost:3003/');
 interface Props {
   handleClose: () => void;
   open: boolean;
@@ -39,20 +42,40 @@ export default function Chat({ open, handleClose }: Props) {
   const [users, setUsers] = useState<any[]>([]);
   const [currentRecipient, setCurrentRecipient] = useState<any>({});
   const [messages, setMessages] = useState<any[]>([]);
+  const [chatId, setChatId] = useState<string>('');
 
   useEffect(() => {
-    getUsers();
-  }, []);
+    axios.get('http://localhost:3003/user/all').then((res) => {
+      setUsers(res.data);
+    });
 
-  useEffect(() => {
-    getMessages();
-  }, [currentRecipient.id]);
+    // Обработчик получения нового сообщения
+    socket.on('message', (message) => {
+      setMessages((prev) => [...prev, message]);
+    });
 
-  useEffect(() => {
-    const id = setInterval(getMessages, 2000);
+    // Подписка на событие получения истории сообщений для комнаты
+    socket.on('chatHistory', (history) => {
+      setMessages(history);
+    });
 
-    return () => clearInterval(id);
-  }, [currentRecipient.id]);
+    return () => {
+      socket.off('message');
+      socket.off('chatHistory');
+    };
+  }, [open]);
+
+  const onSendMessage = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' && formValues.message !== '') {
+      const message = {
+        text: formValues.message,
+        senderId: localStorage.getItem('userId'),
+      };
+
+      socket.emit('sendMessage', message);
+      setFormValues({ message: '' });
+    }
+  };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormValues({
@@ -61,38 +84,13 @@ export default function Chat({ open, handleClose }: Props) {
     });
   };
 
-  const onSend = async (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter') {
-      const userId = localStorage.getItem('userId');
-      const sender = (await axios.get(`http://localhost:3001/users/${userId}`)).data;
-
-      const payload = {
-        text: formValues.message,
-        createDate: new Date(),
-        sender,
-        recipient: currentRecipient,
-      };
-      await axios.post('http://localhost:3001/messages', payload);
-      setFormValues({});
-      getMessages();
-      audio.play();
-    }
-  };
-
-  const getUsers = async () => {
-    const users = (await axios.get('http://localhost:3001/users')).data;
-    setUsers(users);
-  };
-
   const onUserClick = (user: any) => {
-    setCurrentRecipient(user);
-  };
+    const id = generateChatId(user.id, localStorage.getItem('userId'));
 
-  const getMessages = async () => {
-    const userId = localStorage.getItem('userId');
-    const messages = (await axios.get(`http://localhost:3001/messages?sender.id=${currentRecipient.id}&recipient.id=${userId}`)).data;
-    const messagesAdd = (await axios.get(`http://localhost:3001/messages?sender.id=${userId}&recipient.id=${currentRecipient.id}`)).data;
-    setMessages([...messages, ...messagesAdd]);
+    setChatId(id);
+    socket.emit('joinChat', id);
+
+    setCurrentRecipient(user);
   };
 
   const userType = (user: any) => {
@@ -124,14 +122,14 @@ export default function Chat({ open, handleClose }: Props) {
             {users.map((user) => {
               return (
                 <div onClick={() => onUserClick(user)} className={`chat__user ${userType(user)}`}>
-                  {user?.name}
+                  {user?.firstName}
                 </div>
               );
             })}
           </div>
 
           <div className="messages">
-            <h1>{currentRecipient.name}</h1>
+            <h1>{currentRecipient.firstName}</h1>
             {messages
               .sort((a, b) => new Date(a.createDate).getTime() - new Date(b.createDate).getTime())
               .map((message, index, arr) => {
@@ -139,7 +137,7 @@ export default function Chat({ open, handleClose }: Props) {
                 const isNewDate = getDate(message?.createDate) !== getDate(nextMessage?.createDate);
                 return (
                   <>
-                    <div className={String(message.sender.id) === localStorage.getItem('userId') ? 'message message--my' : 'message'}>{message.text}</div>
+                    <div className={String(message.sender) === localStorage.getItem('userId') ? 'message message--my' : 'message'}>{message.text}</div>
                     {isNewDate && (
                       <div style={{ margin: '0 auto' }}>{nextMessage?.createDate ? new Date(nextMessage?.createDate).toLocaleDateString() : ''}</div>
                     )}
@@ -152,7 +150,7 @@ export default function Chat({ open, handleClose }: Props) {
               id="input-with-icon-textfield"
               label="Отправить сообщение"
               onChange={onChange}
-              onKeyDown={onSend}
+              onKeyDown={onSendMessage}
               name="message"
               value={formValues?.message || ''}
               InputProps={{

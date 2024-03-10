@@ -71,6 +71,7 @@ export default function Chat({ open, handleClose }: Props) {
       const message = {
         text: formValues.message,
         senderId: localStorage.getItem('userId'),
+        chatId,
       };
 
       socket.emit('sendMessage', message);
@@ -138,7 +139,7 @@ export default function Chat({ open, handleClose }: Props) {
                 const isNewDate = getDate(message?.createDate) !== getDate(nextMessage?.createDate);
                 return (
                   <>
-                    <div className={String(message.sender) === localStorage.getItem('userId') ? 'message message--my' : 'message'}>{message.text}</div>
+                    <div className={String(message.sender.id) === localStorage.getItem('userId') ? 'message message--my' : 'message'}>{message.text}</div>
                     {isNewDate && (
                       <div style={{ margin: '0 auto' }}>{nextMessage?.createDate ? new Date(nextMessage?.createDate).toLocaleDateString() : ''}</div>
                     )}

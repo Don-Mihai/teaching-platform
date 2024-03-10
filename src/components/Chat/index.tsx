@@ -21,6 +21,7 @@ import message from './message.mp3';
 import { generateChatId } from './utils';
 
 const audio = new Audio(message);
+// new
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {

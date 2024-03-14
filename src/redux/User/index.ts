@@ -1,37 +1,33 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { UserState, IUser, PAuth, ROLES } from './types';
+import { UserState, IUser } from './types';
 
 const initialState: UserState = {
-    user: {} as IUser,
-    token: '',
-    users: [],
-    listeners: [],
+  user: {} as IUser,
+  token: '',
+  users: [],
+  listeners: [],
 };
 
 export const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-        setUser: (state, action: PayloadAction<IUser>) => {
-            localStorage.setItem('userId', String(action.payload.id));
-            state.user = action.payload;
-        },
-        addToken: (state, action: PayloadAction<string>) => {
-            state.token = action.payload;
-			localStorage.setItem('id_token', action.payload);
-        },
+  name: 'user',
+  initialState,
+  reducers: {
+    setUser: (state, action: PayloadAction<IUser>) => {
+      localStorage.setItem('userId', String(action.payload.id));
+      state.user = action.payload;
     },
-    extraReducers(builder) {
-        builder
-            .addCase(auth.fulfilled, (state, action) => {
-                state.user = action.payload || ({} as IUser);
-            })
-            .addCase(getListeners.fulfilled, (state, action) => {
-                state.listeners = action.payload || [];
-            });
+    addToken: (state, action: PayloadAction<string>) => {
+      state.token = action.payload;
+      localStorage.setItem('id_token', action.payload);
     },
+  },
+  extraReducers(builder) {
+    builder.addCase(fetchUser.fulfilled, (state, action) => {
+      state.user = action.payload || {};
+    });
+  },
 });
 
 export const { setUser, addToken } = userSlice.actions;
@@ -39,28 +35,23 @@ export const { setUser, addToken } = userSlice.actions;
 export default userSlice.reducer;
 
 export const get = createAsyncThunk('user/get', async (): Promise<IUser[] | undefined> => {
-    const user = (await axios.get('users')).data;
+  const user = (await axios.get('users')).data;
 
-    return user;
-});
-
-export const getListeners = createAsyncThunk('user/getListeners', async (): Promise<IUser[] | undefined> => {
-    const user = (await axios.get(`users?role=${ROLES.STUDENT}`)).data;
-
-    return user;
+  return user;
 });
 
 export const getById = createAsyncThunk('user/getById', async (userId?: number): Promise<IUser[] | undefined> => {
-    const id = localStorage.getItem('userId') || String(userId);
-    const user = (await axios.get(`users/${id}`)).data;
+  const id = localStorage.getItem('userId') || String(userId);
+  const user = (await axios.get(`users/${id}`)).data;
 
-    return user;
+  return user;
 });
 
-export const auth = createAsyncThunk('user/auth', async (payload: PAuth): Promise<IUser | undefined> => {
-    try {
-        const user = (await axios.get(`users?email=${payload.email}&password=${payload.password}`)).data[0];
-        localStorage.setItem('userId', String(user.id));
-        return user;
-    } catch (error) {}
+export const fetchUser = createAsyncThunk('user/fetchUser', async (accessToken: string) => {
+  const response = await axios.get('https://www.googleapis.com/oauth2/v1/userinfo?alt=json', {
+    headers: {
+      Authorization: `Bearer ${accessToken || localStorage.getItem('id_token')}`,
+    },
+  });
+  return response.data;
 });

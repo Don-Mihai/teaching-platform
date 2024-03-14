@@ -13,6 +13,7 @@ export interface IGroup {
     id: number | string;
     name: string;
     url: IUrl;
+    userId: number | string;
 }
 
 export interface GroupsState {

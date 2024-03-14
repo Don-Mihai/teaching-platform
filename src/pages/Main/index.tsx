@@ -1,57 +1,54 @@
-import GoogleAuth from '../../components/GoogleAuth';
-import Group from '../../components/Group';
-import './Main.scss';
-import { useEffect, useState } from 'react';
-import { IGroup } from '../../redux/Group/types';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { AppDispatch, RootState } from '../../redux/store';
+import { addGroup, get, deleteGroup } from '../../redux/Group';
+
 import Button from '@mui/material/Button';
-import { AppDispatch } from '../../redux/store';
-import { useDispatch } from 'react-redux';
-import { get } from '../../redux/Group';
+import Group from '../../components/Group';
+import { IGroup } from '../../redux/Group/types';
+import GoogleAuth from '../../components/GoogleAuth';
+import './Main.scss';
 
-const Main = () => {
-    const dispatch = useDispatch<AppDispatch>();
+const MainPage = () => {
+  const dispatch = useDispatch<AppDispatch>();
 
-    useEffect(() => {
-        getGroup();
-    }, []);
+  const { groups } = useSelector((state: RootState) => state.group);
+  const { user } = useSelector((state: RootState) => state.user);
 
-    const [groups, setGroups] = useState<IGroup[]>([
-        {
-            id: 1,
-            name: 'ВТ/ЧТ',
-            url: {
-                sber: 'https://jazz.sber.ru/zthtbf?psw=OBEDV0APXRVZAQRBHxtKBlYLGQ',
-                inordic: '',
-            },
-        },
-    ]);
+  useEffect(() => {
+    user?.id && dispatch(get());
+  }, [user?.id]);
 
-    const addGroup = () => {
-        const newGroup: IGroup = {
-            id: groups.length + 1,
-            name: '',
-            url: { sber: '', inordic: '' },
-        };
-        setGroups([...groups, newGroup]);
+  const handleAddGroup = () => {
+    const group: Partial<IGroup> = {
+      name: '',
+      url: {
+        inordic: '',
+        sber: '',
+      },
+      userId: user.id || '',
     };
+    dispatch(addGroup(group));
+  };
 
-    const getGroup = async () => {
-        dispatch(get());
-    };
+  const handleRemoveGroup = (groupId: string | number) => {
+    dispatch(deleteGroup(groupId));
+  };
 
-    return (
-        <>
-            <GoogleAuth />
-            <div className="groups">
-                {groups.map(group => (
-                    <Group group={group} key={group.id} />
-                ))}
-            </div>
-            <Button onClick={addGroup} variant="contained" color="primary">
-                +
-            </Button>
-        </>
-    );
+  return (
+    <>
+      <GoogleAuth />
+      <div className="groups">
+        {groups.map((group) => (
+          <Group group={group} key={group.id} onRemove={handleRemoveGroup} />
+        ))}
+      </div>
+      <Button className="create-group" onClick={handleAddGroup} variant="contained" color="primary">
+        +
+      </Button>
+    </>
+  );
 };
 
-export default Main;
+export default MainPage;

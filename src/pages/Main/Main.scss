@@ -1,6 +1,12 @@
 .groups {
-	margin-top: 40px;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.create-group {
+  position: fixed !important;
+  bottom: 50px;
+  left: calc(50% - 32px);
 }

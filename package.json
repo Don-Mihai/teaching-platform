@@ -14,6 +14,7 @@
         "@types/react": "^18.2.48",
         "@types/react-dom": "^18.2.18",
         "axios": "^1.6.7",
+        "jwt-decode": "^4.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-redux": "^9.0.4",
@@ -27,7 +28,6 @@
         "start": "set HTTPS=true&&react-scripts start --allowed-hosts",
         "build": "react-scripts build"
     },
-    "proxy": "http://localhost:3003",
     "browserslist": {
         "production": [
             ">0.2%",

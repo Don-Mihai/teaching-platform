@@ -21,6 +21,7 @@ const MainPage = () => {
   }, [user?.id]);
 
   const handleAddGroup = () => {
+    !user.id && alert('Вы не авторизованы');
     const group: Partial<IGroup> = {
       name: '',
       url: {

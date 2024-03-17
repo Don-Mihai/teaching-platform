@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import './Lessons.scss';
 import Lesson from './Lesson';
 import { useDispatch, useSelector } from 'react-redux';
-import { getLessons } from '../../redux/Lesson';
+import { getLessons, removeLesson } from '../../redux/Lesson';
 import { AppDispatch, RootState } from '../../redux/store';
 
 export interface ILesson {
@@ -29,6 +29,11 @@ const Lessons = () => {
     setId(0);
   };
 
+  const onDeletLesson = async (lessongId: number) => {
+    await dispatch(removeLesson(lessongId));
+    dispatch(getLessons());
+  };
+
   return (
     <div className="lessons-page">
       <Header />
@@ -37,8 +42,9 @@ const Lessons = () => {
           return (
             <div className="lessons-page__main">
               <div key={item.id} onClick={() => onLessonClick(item.id)} className="lesson">
-                <h3>{item?.title}</h3>
+                <h3 className="lesson__title">{item?.title}</h3>
               </div>
+              <button onClick={() => onDeletLesson(item.id)}>X</button>
             </div>
           );
         })}

@@ -1,2 +1,10 @@
-.profile-component {
+.profile-component__input {
+  &-email,
+  &-password,
+  &-first-name,
+  &-last-name {
+    label {
+      color: white;
+    }
+  }
 }

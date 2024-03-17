@@ -117,15 +117,7 @@
       "footer": "Lorem, isdfs"
     }
   ],
-  "lessons": [
-    {
-      "id": "3fbc",
-      "teacherId": "1",
-      "createDate": "25-02-2024 10:25",
-      "title": "25-02-2024 10:25",
-      "moduleId": 1
-    }
-  ],
+  "lessons": [],
   "groups": [],
   "chats": [
     {

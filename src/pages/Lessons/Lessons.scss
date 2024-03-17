@@ -23,14 +23,18 @@
   padding: 20px;
   font-size: 24px;
   font-weight: normal;
-  background-color: #d2cfcf;
+  background-color: rgb(42, 42, 42);
   border: 1px solid #000;
   border-radius: 8px;
   box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
-  transition: 0.15s;
+  transition: 0.25s;
 
   &:hover {
     transform: scaleY(1.1);
     box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.6);
+  }
+
+  &__title {
+    color: #1976d2;
   }
 }

@@ -29,7 +29,7 @@ const Lessons = () => {
     setId(0);
   };
 
-  const onDeletLesson = async (lessongId: number) => {
+  const onDeleteLesson = async (lessongId: number) => {
     await dispatch(removeLesson(lessongId));
   };
 
@@ -43,7 +43,7 @@ const Lessons = () => {
               <div key={item.id} onClick={() => onLessonClick(item.id)} className="lesson">
                 <h3 className="lesson__title">{item?.title}</h3>
               </div>
-              <button onClick={() => onDeletLesson(item.id)}>X</button>
+              <button onClick={() => onDeleteLesson(item.id)}>X</button>
             </div>
           );
         })}

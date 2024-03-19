@@ -31,7 +31,6 @@ const Lessons = () => {
 
   const onDeletLesson = async (lessongId: number) => {
     await dispatch(removeLesson(lessongId));
-    dispatch(getLessons());
   };
 
   return (

@@ -21,6 +21,10 @@ export const lessonSlice = createSlice({
       const { updatedLesson } = action.payload;
       state.lessons = state.lessons.map((lesson) => (lesson.id === updatedLesson.id ? updatedLesson : lesson));
     });
+    builder.addCase(removeLesson.fulfilled, (state, action) => {
+      const deleteLessonId = action.payload;
+      state.lessons = state.lessons.filter((lesson) => lesson.id !== deleteLessonId);
+    });
   },
 });
 

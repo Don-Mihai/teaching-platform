@@ -5,6 +5,9 @@ import Lesson from './Lesson';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLessons, removeLesson } from '../../redux/Lesson';
 import { AppDispatch, RootState } from '../../redux/store';
+import { Button, IconButton } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export interface ILesson {
   id: number;
@@ -40,10 +43,12 @@ const Lessons = () => {
         {lessons.map((item) => {
           return (
             <div className="lessons-page__main">
-              <div key={item.id} onClick={() => onLessonClick(item.id)} className="lesson">
-                <h3 className="lesson__title">{item?.title}</h3>
+              <div key={item.id} onClick={() => onLessonClick(item.id)} className="lessons-page__wrap">
+                <h3 className="lessons-page__title">{item?.title}</h3>
               </div>
-              <button onClick={() => onDeleteLesson(item.id)}>X</button>
+              <Button className="lessons-page__button2" onClick={() => onDeleteLesson(item.id)} variant="outlined">
+                <ClearIcon />
+              </Button>
             </div>
           );
         })}

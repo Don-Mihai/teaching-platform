@@ -1,15 +1,18 @@
 .modal-item {
   padding: 20px;
+  background-color: #2A2A2A;
 
   &__lesson {
     font-size: 24px;
     padding-bottom: 15px;
     text-transform: uppercase;
+    color: #1976d2;
   }
 
   &__title {
     font-size: 16px;
     padding-bottom: 15px;
+    color: #1976d2;
   }
 }
 

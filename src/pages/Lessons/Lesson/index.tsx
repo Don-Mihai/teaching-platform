@@ -121,9 +121,6 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
           </FileDrop>
         </div>
       </div>
-      <button onClick={() => handleRemoveLesson(id)}>
-        <RemoveCircleOutlineIcon />
-      </button>
     </Dialog>
   );
 };

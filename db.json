@@ -121,15 +121,9 @@
     {
       "id": "d999",
       "createDate": "26-03-2024 18:37",
-      "title": "26-03-2024 18:37",
-      "moduleId": 1
-    },
-    {
-      "id": "5925",
-      "teacherId": "1",
-      "createDate": "28-03-2024 20:47",
-      "title": "28-03-2024 20:47",
-      "moduleId": 1
+      "title": "приветттттттт",
+      "moduleId": 1,
+      "lessonNumber": "d545454545"
     }
   ],
   "groups": [],

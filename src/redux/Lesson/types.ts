@@ -17,6 +17,7 @@ export interface ILesson {
   [LESSON_KEYS.moduleId]: string | number;
   [LESSON_KEYS.groupId]: string | number;
   urlVideo: string;
+  lessonNumber?: number;
 }
 export interface PLesson {
   [LESSON_KEYS.title]: string;

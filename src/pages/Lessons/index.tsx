@@ -46,7 +46,7 @@ const Lessons = () => {
               <div key={item.id} onClick={() => onLessonClick(item.id)} className="lessons-page__wrap">
                 <h3 className="lessons-page__title">{item?.title}</h3>
               </div>
-              <Button className="lessons-page__button2" onClick={() => onDeleteLesson(item.id)} variant="outlined">
+              <Button className="lessons-page__button" onClick={() => onDeleteLesson(item.id)} variant="outlined">
                 <ClearIcon />
               </Button>
             </div>

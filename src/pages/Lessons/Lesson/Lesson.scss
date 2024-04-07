@@ -1,6 +1,6 @@
 .modal-item {
   padding: 20px;
-  background-color: #2A2A2A;
+  background-color: #2a2a2a;
 
   &__lesson {
     font-size: 24px;
@@ -13,6 +13,10 @@
     font-size: 16px;
     padding-bottom: 15px;
     color: #1976d2;
+  }
+
+  &__input input {
+    color: white;
   }
 }
 

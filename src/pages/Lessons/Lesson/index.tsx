@@ -25,32 +25,35 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
   const videoUrl = lessons.find((item) => item.id === id)?.urlVideo || '';
   const [isEditMode, setIsEditMode] = useState(false);
   const [formValues, setFormValues] = useState<ILesson | null>(null);
+  const [showMenu, setShowMenu] = useState(false);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch<AppDispatch>();
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
+    setShowMenu(true);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+    setShowMenu(false);
   };
 
   useEffect(() => {
     dispatch(getById());
   }, []);
 
-  const handleRemoveLesson = async (lessongId: number) => {
-    await dispatch(removeLesson(lessongId));
-    dispatch(getLessons());
-  };
-
   const upload = (video: Blob) => {
     dispatch(uploadVideo({ video, token: token || '', lessonId: id }));
   };
 
   const editPost = () => {
+    const lesson = lessons.find((item) => item.id === id);
+    if (lesson) {
+      setFormValues({ ...lesson, lessonNumber: lesson.lessonNumber || id });
+    }
     setIsEditMode(true);
+    setShowMenu(false);
   };
 
   const onChange = (event: any) => {
@@ -76,7 +79,11 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
   return (
     <Dialog fullWidth open={Boolean(id)} onClose={onCloseModal}>
       <div className="modal-item">
-        {!isEditMode ? <div className="modal-item__lesson">Урок {id}</div> : <TextField name="title" onChange={onChange} value={formValues?.title} />}
+        {!isEditMode ? (
+          <div className="modal-item__lesson">Урок {id}</div>
+        ) : (
+          <TextField className="modal-item__input" name="lessonNumber" onChange={onChange} value={formValues?.lessonNumber || String(formValues?.id)} />
+        )}
 
         <iframe
           className="video"
@@ -85,6 +92,11 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
+        {!isEditMode ? (
+          <div className="modal-item__title">Название: {title}</div>
+        ) : (
+          <TextField className="modal-item__input" name="title" onChange={onChange} value={formValues?.title || ''} />
+        )}
         {isEditMode ? (
           <>
             <IconButton color="success" className="actions__icon-btn btn" onClick={saveChanges}>
@@ -101,18 +113,19 @@ const Lesson = ({ id, onCloseModal, title, token }: Props) => {
             </IconButton>
           </>
         )}
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
-        >
-          <MenuItem onClick={editPost}>Редактировать</MenuItem>
-        </Menu>
-        {!isEditMode ? <div className="modal-item__title"> Название: {title}</div> : <TextField name="title" onChange={onChange} value={formValues?.title} />}
+        {showMenu && (
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              'aria-labelledby': 'basic-button',
+            }}
+          >
+            <MenuItem onClick={editPost}>Редактировать</MenuItem>
+          </Menu>
+        )}
         <div className="modal-item__video">
           <FileDrop borderRadius={'0'} onSendFiles={upload}>
             <Button className="modal-item__video-btn" fullWidth>
